@@ -1,0 +1,17 @@
+TRACE START [2020-08-26 20:27:17]
+    0.0002     404992  +404992   -> {main}() /var/www/mysite.local/upload.php:0
+    0.0002     405056      +64     -> basename('logo-transparent.png') /var/www/mysite.local/upload.php:6
+    0.0002     405104              >=> 'logo-transparent.png'
+    0.0002     405080      +24     -> pathinfo('./pics/logo-transparent.png', 4) /var/www/mysite.local/upload.php:12
+    0.0003     405112              >=> 'png'
+    0.0003     405112      +32     -> strtolower('png') /var/www/mysite.local/upload.php:12
+    0.0003     405112              >=> 'png'
+    0.0003     405112       +0     -> in_array('png', array (0 => 'jpg', 1 => 'png')) /var/www/mysite.local/upload.php:13
+    0.0003     405112              >=> TRUE
+    0.0003     405112       +0     -> move_uploaded_file('/tmp/phpPTT0iF', './pics/logo-transparent.png') /var/www/mysite.local/upload.php:17
+    0.0004     405128              >=> TRUE
+    0.0004     405128      +16     -> header('Location: ./index.php') /var/www/mysite.local/upload.php:18
+    0.0005     405192              >=> NULL
+    0.0007     323872
+TRACE END   [2020-08-26 20:27:17]
+
