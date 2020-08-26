@@ -1,0 +1,4 @@
+[vagrant@localhost mysite.local]$ sudo cat log/usage.log
+[2020-08-26T19:43:15.980918+00:00] usage.DEBUG: Usage before start 576176 [] []
+[2020-08-26T19:43:16.058561+00:00] usage.DEBUG: Usage after finish 635800 [] []
+[vagrant@localhost mysite.local]$

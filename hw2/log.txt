@@ -1,0 +1,924 @@
+login as: vagrant
+vagrant@127.0.0.1's password:
+Last login: Tue Aug 25 18:48:55 2020 from 10.0.2.2
+[vagrant@localhost ~]$ sudo yum install zip unzip
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+epel/x86_64/metalink                                     |  32 kB     00:00
+ * base: mirror.reconn.ru
+ * epel: mirror.logol.ru
+ * extras: mirror.reconn.ru
+ * remi-php72: mirror.reconn.ru
+ * remi-safe: mirror.reconn.ru
+ * updates: mirror.reconn.ru
+base                                                                                  | 3.6 kB  00:00:00
+epel                                                                                  | 4.7 kB  00:00:00
+extras                                                                                | 2.9 kB  00:00:00
+remi-php72                                                                            | 3.0 kB  00:00:00
+remi-safe                                                                             | 3.0 kB  00:00:00
+Not using downloaded remi-safe/repomd.xml because it is older than what we have:
+  Current   : Mon Aug 24 12:25:24 2020
+  Downloaded: Wed Aug 19 10:39:24 2020
+updates                                                                               | 2.9 kB  00:00:00
+epel/x86_64/primary_db         FAILED                                          .0 B/s | 476 kB  --:--:-- ETA
+https://mirror.netsite.dk/epel/7/x86_64/repodata/2d4eedecd657d453e4f9c8bbb32c626651aa1cbba06a841d9ec8169be1f9                                                                                                                                afc0-primary.sqlite.bz2: [Errno 14] HTTPS Error 404 - Not Found
+Trying other mirror.
+To address this issue please refer to the below wiki article
+
+https://wiki.centos.org/yum-errors
+
+If above article doesn't help to resolve this issue please use https://bugs.centos.org/.
+
+(1/3): epel/x86_64/updateinfo                                                         | 1.0 MB  00:00:01
+epel/x86_64/primary_db         FAILED                                          2 kB/s | 2.2 MB  00:00:11 ETA
+https://epel.ip-connect.vn.ua/7/x86_64/repodata/2d4eedecd657d453e4f9c8bbb32c626651aa1cbba06a841d9ec8169be1f9a                                                                                                                                fc0-primary.sqlite.bz2: [Errno 14] HTTPS Error 404 - Not Found
+Trying other mirror.
+(2/3): updates/7/x86_64/primary_db                                                    | 4.5 MB  00:00:04
+(3/3): epel/x86_64/primary_db                                                         | 6.9 MB  00:00:04
+Resolving Dependencies
+--> Running transaction check
+---> Package unzip.x86_64 0:6.0-21.el7 will be installed
+---> Package zip.x86_64 0:3.0-11.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+=============================================================================================================
+ Package                 Arch                     Version                       Repository              Size
+=============================================================================================================
+Installing:
+ unzip                   x86_64                   6.0-21.el7                    base                   171 k
+ zip                     x86_64                   3.0-11.el7                    base                   260 k
+
+Transaction Summary
+=============================================================================================================
+Install  2 Packages
+
+Total download size: 431 k
+Installed size: 1.1 M
+Is this ok [y/d/N]: н
+Is this ok [y/d/N]: y
+Downloading packages:
+(1/2): unzip-6.0-21.el7.x86_64.rpm                                                    | 171 kB  00:00:00
+(2/2): zip-3.0-11.el7.x86_64.rpm                                                      | 260 kB  00:00:00
+-------------------------------------------------------------------------------------------------------------
+Total                                                                        604 kB/s | 431 kB  00:00:00
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : zip-3.0-11.el7.x86_64                                                                     1/2
+  Installing : unzip-6.0-21.el7.x86_64                                                                   2/2
+  Verifying  : unzip-6.0-21.el7.x86_64                                                                   1/2
+  Verifying  : zip-3.0-11.el7.x86_64                                                                     2/2
+
+Installed:
+  unzip.x86_64 0:6.0-21.el7                              zip.x86_64 0:3.0-11.el7
+
+Complete!
+[vagrant@localhost ~]$ composer require monolog/monolog
+Using version ^2.1 for monolog/monolog
+./composer.json has been created
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 2 installs, 0 updates, 0 removals
+  - Installing psr/log (1.1.3): Downloading (100%)
+  - Installing monolog/monolog (2.1.1): Downloading (100%)
+monolog/monolog suggests installing graylog2/gelf-php (Allow sending log messages to a GrayLog2 server)
+monolog/monolog suggests installing doctrine/couchdb (Allow sending log messages to a CouchDB server)
+monolog/monolog suggests installing ruflin/elastica (Allow sending log messages to an Elastic Search server)
+monolog/monolog suggests installing elasticsearch/elasticsearch (Allow sending log messages to an Elasticsear                                                                                                                                ch server via official client)
+monolog/monolog suggests installing php-amqplib/php-amqplib (Allow sending log messages to an AMQP server usi                                                                                                                                ng php-amqplib)
+monolog/monolog suggests installing ext-amqp (Allow sending log messages to an AMQP server (1.0+ required))
+monolog/monolog suggests installing ext-mongodb (Allow sending log messages to a MongoDB server (via driver))
+monolog/monolog suggests installing mongodb/mongodb (Allow sending log messages to a MongoDB server (via libr                                                                                                                                ary))
+monolog/monolog suggests installing aws/aws-sdk-php (Allow sending log messages to AWS services like DynamoDB                                                                                                                                )
+monolog/monolog suggests installing rollbar/rollbar (Allow sending log messages to Rollbar)
+monolog/monolog suggests installing php-console/php-console (Allow sending log messages to Google Chrome)
+monolog/monolog suggests installing ext-mbstring (Allow to work properly with unicode symbols)
+Writing lock file
+Generating autoload files
+1 package you are using is looking for funding.
+Use the `composer fund` command to find out more!
+[vagrant@localhost ~]$ sudo systemctl restart nginx
+[vagrant@localhost ~]$ sudo chmod 777 /var/log/nginx/
+[vagrant@localhost ~]$ sudo ln —s /usr/bin/php72 /usr/bin/php
+ln: target ‘/usr/bin/php’ is not a directory
+[vagrant@localhost ~]$ php -v
+PHP 7.2.33 (cli) (built: Aug  4 2020 09:54:49) ( NTS )
+Copyright (c) 1997-2018 The PHP Group
+Zend Engine v3.2.0, Copyright (c) 1998-2018 Zend Technologies
+[vagrant@localhost ~]$ sudo ln -l /usr/bin/ | grep pgp
+ln: invalid option -- 'l'
+Try 'ln --help' for more information.
+[vagrant@localhost ~]$ sudo ln /usr/bin/ | grep pgp
+ln: ‘/usr/bin/’: hard link not allowed for directory
+[vagrant@localhost ~]$ ln /usr/bin/ | grep pgp
+ln: ‘/usr/bin/’: hard link not allowed for directory
+[vagrant@localhost ~]$ ln /usr/bin | grep pgp
+ln: ‘/usr/bin’: hard link not allowed for directory
+[vagrant@localhost ~]$ ls /usr/bin | grep php
+php
+php72
+php72-cgi
+php72-phar
+php-cgi
+phpize
+zts-php
+[vagrant@localhost ~]$ ls -l /usr/bin | grep php
+-rwxr-xr-x    1 root root   5322320 Aug  4 07:59 php
+lrwxrwxrwx.   1 root root        32 Aug 24 09:23 php72 -> /opt/remi/php72/root/usr/bin/php
+lrwxrwxrwx.   1 root root        36 Aug 24 09:23 php72-cgi -> /opt/remi/php72/root/usr/bin/php-cgi
+lrwxrwxrwx.   1 root root        38 Aug 24 09:23 php72-phar -> /opt/remi/php72/root/usr/bin/phar.phar
+-rwxr-xr-x    1 root root   5215952 Aug  4 07:59 php-cgi
+-rwxr-xr-x    1 root root      4763 Aug  4 07:59 phpize
+-rwxr-xr-x    1 root root   5499056 Aug  4 07:59 zts-php
+[vagrant@localhost ~]$ sudo systemctl restart php
+Failed to restart php.service: Unit not found.
+[vagrant@localhost ~]$ sudo restart php
+sudo: restart: command not found
+[vagrant@localhost ~]$ sudo php restart
+Could not open input file: restart
+[vagrant@localhost ~]$ service nginx restart
+Redirecting to /bin/systemctl restart nginx.service
+==== AUTHENTICATING FOR org.freedesktop.systemd1.manage-units ===
+Authentication is required to manage system services or units.
+Authenticating as: root
+Password:
+polkit-agent-helper-1: pam_authenticate failed: Authentication failure
+==== AUTHENTICATION FAILED ===
+Failed to restart nginx.service: Access denied
+See system logs and 'systemctl status nginx.service' for details.
+[vagrant@localhost ~]$ service php-fpm restart
+Redirecting to /bin/systemctl restart php-fpm.service
+==== AUTHENTICATING FOR org.freedesktop.systemd1.manage-units ===
+Authentication is required to manage system services or units.
+Authenticating as: root
+Password:
+polkit-agent-helper-1: pam_authenticate failed: Authentication failure
+==== AUTHENTICATION FAILED ===
+Failed to restart php-fpm.service: Access denied
+See system logs and 'systemctl status php-fpm.service' for details.
+[vagrant@localhost ~]$ service php-fpm restart
+Redirecting to /bin/systemctl restart php-fpm.service
+==== AUTHENTICATING FOR org.freedesktop.systemd1.manage-units ===
+Authentication is required to manage system services or units.
+Authenticating as: root
+Password:
+polkit-agent-helper-1: pam_authenticate failed: Authentication failure
+==== AUTHENTICATION FAILED ===
+Failed to restart php-fpm.service: Access denied
+See system logs and 'systemctl status php-fpm.service' for details.
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$ sudo systemctl restart php
+Failed to restart php.service: Unit not found.
+[vagrant@localhost ~]$ sudo systemctl restart nginx
+[vagrant@localhost ~]$ sudo systemctl restart php-fpm
+Failed to restart php-fpm.service: Unit not found.
+[vagrant@localhost ~]$ sudo restart php-fpm
+sudo: restart: command not found
+[vagrant@localhost ~]$ sudo php-fpm restart
+sudo: php-fpm: command not found
+[vagrant@localhost ~]$ sudo php72-php-fpm restart
+sudo: php72-php-fpm: command not found
+[vagrant@localhost ~]$ sudo restart php72-php-fpm
+sudo: restart: command not found
+[vagrant@localhost ~]$ sudo systemctl restart php72-php-fpm
+[vagrant@localhost ~]$ sudo systemctl restart nginx
+[vagrant@localhost ~]$ sudo vi /var/www/mysite.local/index.php
+[vagrant@localhost ~]$ sudo vi /var/www/mysite.local/index.php
+[vagrant@localhost ~]$ sudo systemctl restart php72-php-fpm
+[vagrant@localhost ~]$ sudo systemctl restart nginx
+[vagrant@localhost ~]$ sudo yum install composer
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirror.reconn.ru
+ * epel: mirror.logol.ru
+ * extras: mirror.reconn.ru
+ * remi-php72: mirror.reconn.ru
+ * remi-safe: mirror.reconn.ru
+ * updates: mirror.logol.ru
+Resolving Dependencies
+--> Running transaction check
+---> Package composer.noarch 0:1.10.10-1.el7 will be installed
+--> Processing Dependency: php-PsrLog >= 1.0.0-8 for package: composer-1.10.10-1.el7.noarch
+--> Processing Dependency: php-composer-spdx-licenses >= 1.2 for package: composer-1.10.10-1.el7.noarch
+--> Processing Dependency: php-composer-xdebug-handler >= 1.1 for package: composer-1.10.10-1.el7.noarch
+--> Processing Dependency: php-jsonlint >= 1.4 for package: composer-1.10.10-1.el7.noarch
+--> Processing Dependency: php-justinrainbow-json-schema5 >= 5.2.10 for package: composer-1.10.10-1.el7.noarc                                                                                                                                h
+--> Processing Dependency: php-seld-phar-utils >= 1.0.1 for package: composer-1.10.10-1.el7.noarch
+--> Processing Dependency: php-PsrLog for package: composer-1.10.10-1.el7.noarch
+--> Processing Dependency: php-composer(fedora/autoloader) for package: composer-1.10.10-1.el7.noarch
+--> Processing Dependency: php-composer-ca-bundle for package: composer-1.10.10-1.el7.noarch
+--> Processing Dependency: php-composer-semver for package: composer-1.10.10-1.el7.noarch
+--> Processing Dependency: php-dom for package: composer-1.10.10-1.el7.noarch
+--> Processing Dependency: php-mbstring for package: composer-1.10.10-1.el7.noarch
+--> Processing Dependency: php-seld-phar-utils for package: composer-1.10.10-1.el7.noarch
+--> Processing Dependency: php-simplexml for package: composer-1.10.10-1.el7.noarch
+--> Processing Dependency: php-symfony-console for package: composer-1.10.10-1.el7.noarch
+--> Processing Dependency: php-symfony-filesystem for package: composer-1.10.10-1.el7.noarch
+--> Processing Dependency: php-symfony-finder for package: composer-1.10.10-1.el7.noarch
+--> Processing Dependency: php-symfony-process for package: composer-1.10.10-1.el7.noarch
+--> Processing Dependency: php-xsl for package: composer-1.10.10-1.el7.noarch
+--> Processing Dependency: php-zip for package: composer-1.10.10-1.el7.noarch
+--> Running transaction check
+---> Package php-PsrLog.noarch 0:1.1.3-1.el7 will be installed
+---> Package php-composer-ca-bundle.noarch 0:1.2.7-1.el7 will be installed
+---> Package php-composer-semver.noarch 0:1.5.1-1.el7 will be installed
+---> Package php-composer-spdx-licenses.noarch 0:1.5.4-1.el7 will be installed
+---> Package php-composer-xdebug-handler.noarch 0:1.4.2-1.el7 will be installed
+--> Processing Dependency: php-posix for package: php-composer-xdebug-handler-1.4.2-1.el7.noarch
+---> Package php-fedora-autoloader.noarch 0:1.0.1-2.el7 will be installed
+---> Package php-jsonlint.noarch 0:1.6.1-1.el7 will be installed
+---> Package php-justinrainbow-json-schema5.noarch 0:5.2.10-1.el7 will be installed
+---> Package php-mbstring.x86_64 0:7.2.33-1.el7.remi will be installed
+--> Processing Dependency: libonig.so.105()(64bit) for package: php-mbstring-7.2.33-1.el7.remi.x86_64
+---> Package php-pecl-zip.x86_64 0:1.19.0-1.el7.remi.7.2 will be installed
+--> Processing Dependency: libzip5(x86-64) >= 1.7.0 for package: php-pecl-zip-1.19.0-1.el7.remi.7.2.x86_64
+--> Processing Dependency: libzip.so.5()(64bit) for package: php-pecl-zip-1.19.0-1.el7.remi.7.2.x86_64
+---> Package php-seld-phar-utils.noarch 0:1.1.0-1.el7 will be installed
+---> Package php-symfony-console.noarch 0:2.8.12-2.el7 will be installed
+--> Processing Dependency: php-composer(symfony/event-dispatcher) = 2.8.12 for package: php-symfony-console-2                                                                                                                                .8.12-2.el7.noarch
+---> Package php-symfony-filesystem.noarch 0:2.8.12-2.el7 will be installed
+--> Processing Dependency: php-symfony-common = 2.8.12-2.el7 for package: php-symfony-filesystem-2.8.12-2.el7                                                                                                                                .noarch
+---> Package php-symfony-finder.noarch 0:2.8.12-2.el7 will be installed
+---> Package php-symfony-process.noarch 0:2.8.12-2.el7 will be installed
+---> Package php-xml.x86_64 0:7.2.33-1.el7.remi will be installed
+--> Running transaction check
+---> Package libzip5.x86_64 0:1.7.3-1.el7.remi will be installed
+---> Package oniguruma5php.x86_64 0:6.9.5+rev1-2.el7.remi will be installed
+---> Package php-process.x86_64 0:7.2.33-1.el7.remi will be installed
+---> Package php-symfony-common.noarch 0:2.8.12-2.el7 will be installed
+--> Processing Dependency: php-symfony-class-loader = 2.8.12-2.el7 for package: php-symfony-common-2.8.12-2.e                                                                                                                                l7.noarch
+---> Package php-symfony-event-dispatcher.noarch 0:2.8.12-2.el7 will be installed
+--> Processing Dependency: php-composer(symfony/dependency-injection) = 2.8.12 for package: php-symfony-event                                                                                                                                -dispatcher-2.8.12-2.el7.noarch
+--> Processing Dependency: php-composer(symfony/http-kernel) = 2.8.12 for package: php-symfony-event-dispatch                                                                                                                                er-2.8.12-2.el7.noarch
+--> Running transaction check
+---> Package php-symfony-class-loader.noarch 0:2.8.12-2.el7 will be installed
+---> Package php-symfony-dependency-injection.noarch 0:2.8.12-2.el7 will be installed
+--> Processing Dependency: php-composer(symfony/config) = 2.8.12 for package: php-symfony-dependency-injectio                                                                                                                                n-2.8.12-2.el7.noarch
+--> Processing Dependency: php-composer(symfony/expression-language) = 2.8.12 for package: php-symfony-depend                                                                                                                                ency-injection-2.8.12-2.el7.noarch
+--> Processing Dependency: php-composer(symfony/yaml) = 2.8.12 for package: php-symfony-dependency-injection-                                                                                                                                2.8.12-2.el7.noarch
+---> Package php-symfony-http-kernel.noarch 0:2.8.12-2.el7 will be installed
+--> Processing Dependency: php-composer(symfony/browser-kit) = 2.8.12 for package: php-symfony-http-kernel-2.                                                                                                                                8.12-2.el7.noarch
+--> Processing Dependency: php-composer(symfony/debug) = 2.8.12 for package: php-symfony-http-kernel-2.8.12-2                                                                                                                                .el7.noarch
+--> Processing Dependency: php-composer(symfony/http-foundation) = 2.8.12 for package: php-symfony-http-kerne                                                                                                                                l-2.8.12-2.el7.noarch
+--> Processing Dependency: php-composer(symfony/var-dumper) = 2.8.12 for package: php-symfony-http-kernel-2.8                                                                                                                                .12-2.el7.noarch
+--> Processing Dependency: php-pdo for package: php-symfony-http-kernel-2.8.12-2.el7.noarch
+--> Processing Dependency: php-sqlite3 for package: php-symfony-http-kernel-2.8.12-2.el7.noarch
+--> Running transaction check
+---> Package php-pdo.x86_64 0:7.2.33-1.el7.remi will be installed
+---> Package php-symfony-browser-kit.noarch 0:2.8.12-2.el7 will be installed
+--> Processing Dependency: php-composer(symfony/dom-crawler) = 2.8.12 for package: php-symfony-browser-kit-2.                                                                                                                                8.12-2.el7.noarch
+---> Package php-symfony-config.noarch 0:2.8.12-2.el7 will be installed
+---> Package php-symfony-debug.noarch 0:2.8.12-2.el7 will be installed
+---> Package php-symfony-expression-language.noarch 0:2.8.12-2.el7 will be installed
+---> Package php-symfony-http-foundation.noarch 0:2.8.12-2.el7 will be installed
+--> Processing Dependency: php-composer(symfony/polyfill-php54) < 2.0 for package: php-symfony-http-foundatio                                                                                                                                n-2.8.12-2.el7.noarch
+--> Processing Dependency: php-composer(symfony/polyfill-php55) < 2.0 for package: php-symfony-http-foundatio                                                                                                                                n-2.8.12-2.el7.noarch
+--> Processing Dependency: php-composer(symfony/polyfill-php54) >= 1.0 for package: php-symfony-http-foundati                                                                                                                                on-2.8.12-2.el7.noarch
+--> Processing Dependency: php-composer(symfony/polyfill-php55) >= 1.0 for package: php-symfony-http-foundati                                                                                                                                on-2.8.12-2.el7.noarch
+---> Package php-symfony-var-dumper.noarch 0:2.8.12-2.el7 will be installed
+--> Processing Dependency: php-gd for package: php-symfony-var-dumper-2.8.12-2.el7.noarch
+---> Package php-symfony-yaml.noarch 0:2.8.12-2.el7 will be installed
+--> Running transaction check
+---> Package php-gd.x86_64 0:7.2.33-1.el7.remi will be installed
+--> Processing Dependency: gd-last(x86-64) >= 2.1.1 for package: php-gd-7.2.33-1.el7.remi.x86_64
+--> Processing Dependency: libgd.so.3()(64bit) for package: php-gd-7.2.33-1.el7.remi.x86_64
+---> Package php-symfony-dom-crawler.noarch 0:2.8.12-2.el7 will be installed
+--> Processing Dependency: php-composer(symfony/css-selector) = 2.8.12 for package: php-symfony-dom-crawler-2                                                                                                                                .8.12-2.el7.noarch
+---> Package php-symfony-polyfill.noarch 0:1.5.0-1.el7 will be installed
+--> Processing Dependency: php-composer(ircmaxell/password-compat) < 2.0 for package: php-symfony-polyfill-1.                                                                                                                                5.0-1.el7.noarch
+--> Processing Dependency: php-composer(paragonie/random_compat) < 3.0 for package: php-symfony-polyfill-1.5.                                                                                                                                0-1.el7.noarch
+--> Processing Dependency: php-composer(ircmaxell/password-compat) >= 1.0 for package: php-symfony-polyfill-1                                                                                                                                .5.0-1.el7.noarch
+--> Processing Dependency: php-composer(paragonie/random_compat) >= 1.0 for package: php-symfony-polyfill-1.5                                                                                                                                .0-1.el7.noarch
+--> Running transaction check
+---> Package gd-last.x86_64 0:2.3.0-2.el7.remi will be installed
+--> Processing Dependency: libtiff.so.5(LIBTIFF_4.0)(64bit) for package: gd-last-2.3.0-2.el7.remi.x86_64
+--> Processing Dependency: libraqm.so.0()(64bit) for package: gd-last-2.3.0-2.el7.remi.x86_64
+--> Processing Dependency: libtiff.so.5()(64bit) for package: gd-last-2.3.0-2.el7.remi.x86_64
+--> Processing Dependency: libwebp.so.7()(64bit) for package: gd-last-2.3.0-2.el7.remi.x86_64
+---> Package php-paragonie-random-compat.noarch 0:2.0.18-1.el7 will be installed
+---> Package php-password-compat.noarch 0:1.0.4-1.el7 will be installed
+---> Package php-symfony-css-selector.noarch 0:2.8.12-2.el7 will be installed
+--> Running transaction check
+---> Package libraqm.x86_64 0:0.7.0-4.el7 will be installed
+--> Processing Dependency: libfribidi.so.0()(64bit) for package: libraqm-0.7.0-4.el7.x86_64
+--> Processing Dependency: libharfbuzz.so.0()(64bit) for package: libraqm-0.7.0-4.el7.x86_64
+---> Package libtiff.x86_64 0:4.0.3-32.el7 will be installed
+--> Processing Dependency: libjbig.so.2.0()(64bit) for package: libtiff-4.0.3-32.el7.x86_64
+---> Package libwebp7.x86_64 0:1.0.3-1.el7.remi will be installed
+--> Running transaction check
+---> Package fribidi.x86_64 0:1.0.2-1.el7_7.1 will be installed
+---> Package harfbuzz.x86_64 0:1.7.5-2.el7 will be installed
+--> Processing Dependency: libgraphite2.so.3()(64bit) for package: harfbuzz-1.7.5-2.el7.x86_64
+---> Package jbigkit-libs.x86_64 0:2.0-11.el7 will be installed
+--> Running transaction check
+---> Package graphite2.x86_64 0:1.3.10-1.el7_3 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+=============================================================================================================
+ Package                                 Arch          Version                       Repository         Size
+=============================================================================================================
+Installing:
+ composer                                noarch        1.10.10-1.el7                 epel              408 k
+Installing for dependencies:
+ fribidi                                 x86_64        1.0.2-1.el7_7.1               base               79 k
+ gd-last                                 x86_64        2.3.0-2.el7.remi              remi-safe         135 k
+ graphite2                               x86_64        1.3.10-1.el7_3                base              115 k
+ harfbuzz                                x86_64        1.7.5-2.el7                   base              267 k
+ jbigkit-libs                            x86_64        2.0-11.el7                    base               46 k
+ libraqm                                 x86_64        0.7.0-4.el7                   epel               15 k
+ libtiff                                 x86_64        4.0.3-32.el7                  base              171 k
+ libwebp7                                x86_64        1.0.3-1.el7.remi              remi-safe         266 k
+ libzip5                                 x86_64        1.7.3-1.el7.remi              remi-safe          61 k
+ oniguruma5php                           x86_64        6.9.5+rev1-2.el7.remi         remi-safe         201 k
+ php-PsrLog                              noarch        1.1.3-1.el7                   epel               14 k
+ php-composer-ca-bundle                  noarch        1.2.7-1.el7                   epel               12 k
+ php-composer-semver                     noarch        1.5.1-1.el7                   epel               17 k
+ php-composer-spdx-licenses              noarch        1.5.4-1.el7                   epel               18 k
+ php-composer-xdebug-handler             noarch        1.4.2-1.el7                   epel               19 k
+ php-fedora-autoloader                   noarch        1.0.1-2.el7                   epel               11 k
+ php-gd                                  x86_64        7.2.33-1.el7.remi             remi-php72         82 k
+ php-jsonlint                            noarch        1.6.1-1.el7                   epel               17 k
+ php-justinrainbow-json-schema5          noarch        5.2.10-1.el7                  epel               41 k
+ php-mbstring                            x86_64        7.2.33-1.el7.remi             remi-php72        496 k
+ php-paragonie-random-compat             noarch        2.0.18-1.el7                  epel               28 k
+ php-password-compat                     noarch        1.0.4-1.el7                   epel               10 k
+ php-pdo                                 x86_64        7.2.33-1.el7.remi             remi-php72        129 k
+ php-pecl-zip                            x86_64        1.19.0-1.el7.remi.7.2         remi-php72         58 k
+ php-process                             x86_64        7.2.33-1.el7.remi             remi-php72         84 k
+ php-seld-phar-utils                     noarch        1.1.0-1.el7                   epel              8.4 k
+ php-symfony-browser-kit                 noarch        2.8.12-2.el7                  epel               23 k
+ php-symfony-class-loader                noarch        2.8.12-2.el7                  epel               26 k
+ php-symfony-common                      noarch        2.8.12-2.el7                  epel              124 k
+ php-symfony-config                      noarch        2.8.12-2.el7                  epel               51 k
+ php-symfony-console                     noarch        2.8.12-2.el7                  epel               88 k
+ php-symfony-css-selector                noarch        2.8.12-2.el7                  epel               37 k
+ php-symfony-debug                       noarch        2.8.12-2.el7                  epel               36 k
+ php-symfony-dependency-injection        noarch        2.8.12-2.el7                  epel               83 k
+ php-symfony-dom-crawler                 noarch        2.8.12-2.el7                  epel               30 k
+ php-symfony-event-dispatcher            noarch        2.8.12-2.el7                  epel               24 k
+ php-symfony-expression-language         noarch        2.8.12-2.el7                  epel               27 k
+ php-symfony-filesystem                  noarch        2.8.12-2.el7                  epel               22 k
+ php-symfony-finder                      noarch        2.8.12-2.el7                  epel               38 k
+ php-symfony-http-foundation             noarch        2.8.12-2.el7                  epel               93 k
+ php-symfony-http-kernel                 noarch        2.8.12-2.el7                  epel               99 k
+ php-symfony-polyfill                    noarch        1.5.0-1.el7                   epel               26 k
+ php-symfony-process                     noarch        2.8.12-2.el7                  epel               32 k
+ php-symfony-var-dumper                  noarch        2.8.12-2.el7                  epel               48 k
+ php-symfony-yaml                        noarch        2.8.12-2.el7                  epel               28 k
+ php-xml                                 x86_64        7.2.33-1.el7.remi             remi-php72        210 k
+
+Transaction Summary
+=============================================================================================================
+Install  1 Package (+46 Dependent packages)
+
+Total download size: 3.9 M
+Installed size: 13 M
+Is this ok [y/d/N]: y
+Downloading packages:
+(1/47): fribidi-1.0.2-1.el7_7.1.x86_64.rpm                                            |  79 kB  00:00:00
+(2/47): jbigkit-libs-2.0-11.el7.x86_64.rpm                                            |  46 kB  00:00:00
+(3/47): composer-1.10.10-1.el7.noarch.rpm                                             | 408 kB  00:00:00
+(4/47): harfbuzz-1.7.5-2.el7.x86_64.rpm                                               | 267 kB  00:00:00
+(5/47): libtiff-4.0.3-32.el7.x86_64.rpm                                               | 171 kB  00:00:00
+(6/47): libraqm-0.7.0-4.el7.x86_64.rpm                                                |  15 kB  00:00:00
+(7/47): gd-last-2.3.0-2.el7.remi.x86_64.rpm                                           | 135 kB  00:00:01
+(8/47): graphite2-1.3.10-1.el7_3.x86_64.rpm                                           | 115 kB  00:00:01
+(9/47): php-PsrLog-1.1.3-1.el7.noarch.rpm                                             |  14 kB  00:00:00
+(10/47): php-composer-ca-bundle-1.2.7-1.el7.noarch.rpm                                |  12 kB  00:00:00
+(11/47): php-composer-semver-1.5.1-1.el7.noarch.rpm                                   |  17 kB  00:00:00
+(12/47): php-composer-spdx-licenses-1.5.4-1.el7.noarch.rpm                            |  18 kB  00:00:00
+(13/47): libzip5-1.7.3-1.el7.remi.x86_64.rpm                                          |  61 kB  00:00:00
+(14/47): php-composer-xdebug-handler-1.4.2-1.el7.noarch.rpm                           |  19 kB  00:00:00
+(15/47): php-fedora-autoloader-1.0.1-2.el7.noarch.rpm                                 |  11 kB  00:00:00
+(16/47): php-jsonlint-1.6.1-1.el7.noarch.rpm                                          |  17 kB  00:00:00
+(17/47): libwebp7-1.0.3-1.el7.remi.x86_64.rpm                                         | 266 kB  00:00:00
+(18/47): php-justinrainbow-json-schema5-5.2.10-1.el7.noarch.rpm                       |  41 kB  00:00:00
+(19/47): php-paragonie-random-compat-2.0.18-1.el7.noarch.rpm                          |  28 kB  00:00:00
+(20/47): php-password-compat-1.0.4-1.el7.noarch.rpm                                   |  10 kB  00:00:00
+(21/47): php-pdo-7.2.33-1.el7.remi.x86_64.rpm                                         | 129 kB  00:00:00
+(22/47): php-process-7.2.33-1.el7.remi.x86_64.rpm                                     |  84 kB  00:00:00
+(23/47): php-gd-7.2.33-1.el7.remi.x86_64.rpm                                          |  82 kB  00:00:00
+(24/47): php-seld-phar-utils-1.1.0-1.el7.noarch.rpm                                   | 8.4 kB  00:00:00
+(25/47): php-symfony-class-loader-2.8.12-2.el7.noarch.rpm                             |  26 kB  00:00:00
+(26/47): php-symfony-common-2.8.12-2.el7.noarch.rpm                                   | 124 kB  00:00:00
+(27/47): php-symfony-config-2.8.12-2.el7.noarch.rpm                                   |  51 kB  00:00:00
+(28/47): php-symfony-console-2.8.12-2.el7.noarch.rpm                                  |  88 kB  00:00:00
+(29/47): php-mbstring-7.2.33-1.el7.remi.x86_64.rpm                                    | 496 kB  00:00:01
+(30/47): php-symfony-css-selector-2.8.12-2.el7.noarch.rpm                             |  37 kB  00:00:00
+(31/47): php-symfony-debug-2.8.12-2.el7.noarch.rpm                                    |  36 kB  00:00:00
+(32/47): php-symfony-dependency-injection-2.8.12-2.el7.noarch.rpm                     |  83 kB  00:00:00
+(33/47): php-symfony-event-dispatcher-2.8.12-2.el7.noarch.rpm                         |  24 kB  00:00:00
+(34/47): php-symfony-dom-crawler-2.8.12-2.el7.noarch.rpm                              |  30 kB  00:00:00
+(35/47): php-symfony-expression-language-2.8.12-2.el7.noarch.rpm                      |  27 kB  00:00:00
+(36/47): php-symfony-filesystem-2.8.12-2.el7.noarch.rpm                               |  22 kB  00:00:00
+(37/47): php-symfony-finder-2.8.12-2.el7.noarch.rpm                                   |  38 kB  00:00:00
+(38/47): php-symfony-browser-kit-2.8.12-2.el7.noarch.rpm                              |  23 kB  00:00:00
+(39/47): php-symfony-http-foundation-2.8.12-2.el7.noarch.rpm                          |  93 kB  00:00:00
+(40/47): php-symfony-http-kernel-2.8.12-2.el7.noarch.rpm                              |  99 kB  00:00:00
+(41/47): php-symfony-process-2.8.12-2.el7.noarch.rpm                                  |  32 kB  00:00:00
+(42/47): php-symfony-var-dumper-2.8.12-2.el7.noarch.rpm                               |  48 kB  00:00:00
+(43/47): php-symfony-yaml-2.8.12-2.el7.noarch.rpm                                     |  28 kB  00:00:00
+(44/47): oniguruma5php-6.9.5+rev1-2.el7.remi.x86_64.rpm                               | 201 kB  00:00:02
+(45/47): php-symfony-polyfill-1.5.0-1.el7.noarch.rpm                                  |  26 kB  00:00:00
+(46/47): php-pecl-zip-1.19.0-1.el7.remi.7.2.x86_64.rpm                                |  58 kB  00:00:01
+(47/47): php-xml-7.2.33-1.el7.remi.x86_64.rpm                                         | 210 kB  00:00:00
+-------------------------------------------------------------------------------------------------------------
+Total                                                                        953 kB/s | 3.9 MB  00:00:04
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : php-fedora-autoloader-1.0.1-2.el7.noarch                                                 1/47
+  Installing : php-xml-7.2.33-1.el7.remi.x86_64                                                         2/47
+  Installing : php-PsrLog-1.1.3-1.el7.noarch                                                            3/47
+  Installing : php-process-7.2.33-1.el7.remi.x86_64                                                     4/47
+  Installing : php-symfony-common-2.8.12-2.el7.noarch                                                   5/47
+  Installing : php-symfony-class-loader-2.8.12-2.el7.noarch                                             6/47
+  Installing : php-symfony-process-2.8.12-2.el7.noarch                                                  7/47
+  Installing : php-symfony-finder-2.8.12-2.el7.noarch                                                   8/47
+  Installing : php-symfony-filesystem-2.8.12-2.el7.noarch                                               9/47
+  Installing : php-pdo-7.2.33-1.el7.remi.x86_64                                                        10/47
+  Installing : php-symfony-css-selector-2.8.12-2.el7.noarch                                            11/47
+  Installing : php-symfony-expression-language-2.8.12-2.el7.noarch                                     12/47
+  Installing : php-composer-xdebug-handler-1.4.2-1.el7.noarch                                          13/47
+  Installing : php-symfony-debug-2.8.12-2.el7.noarch                                                   14/47
+  Installing : php-composer-ca-bundle-1.2.7-1.el7.noarch                                               15/47
+  Installing : php-composer-semver-1.5.1-1.el7.noarch                                                  16/47
+  Installing : php-seld-phar-utils-1.1.0-1.el7.noarch                                                  17/47
+  Installing : php-composer-spdx-licenses-1.5.4-1.el7.noarch                                           18/47
+  Installing : php-jsonlint-1.6.1-1.el7.noarch                                                         19/47
+  Installing : libwebp7-1.0.3-1.el7.remi.x86_64                                                        20/47
+  Installing : oniguruma5php-6.9.5+rev1-2.el7.remi.x86_64                                              21/47
+  Installing : php-mbstring-7.2.33-1.el7.remi.x86_64                                                   22/47
+  Installing : php-symfony-yaml-2.8.12-2.el7.noarch                                                    23/47
+  Installing : php-symfony-config-2.8.12-2.el7.noarch                                                  24/47
+  Installing : php-symfony-dependency-injection-2.8.12-2.el7.noarch                                    25/47
+  Installing : php-password-compat-1.0.4-1.el7.noarch                                                  26/47
+  Installing : php-justinrainbow-json-schema5-5.2.10-1.el7.noarch                                      27/47
+  Installing : php-paragonie-random-compat-2.0.18-1.el7.noarch                                         28/47
+  Installing : php-symfony-polyfill-1.5.0-1.el7.noarch                                                 29/47
+  Installing : php-symfony-http-foundation-2.8.12-2.el7.noarch                                         30/47
+  Installing : php-symfony-dom-crawler-2.8.12-2.el7.noarch                                             31/47
+  Installing : php-symfony-browser-kit-2.8.12-2.el7.noarch                                             32/47
+  Installing : graphite2-1.3.10-1.el7_3.x86_64                                                         33/47
+  Installing : harfbuzz-1.7.5-2.el7.x86_64                                                             34/47
+  Installing : jbigkit-libs-2.0-11.el7.x86_64                                                          35/47
+  Installing : libtiff-4.0.3-32.el7.x86_64                                                             36/47
+  Installing : fribidi-1.0.2-1.el7_7.1.x86_64                                                          37/47
+  Installing : libraqm-0.7.0-4.el7.x86_64                                                              38/47
+  Installing : gd-last-2.3.0-2.el7.remi.x86_64                                                         39/47
+  Installing : php-gd-7.2.33-1.el7.remi.x86_64                                                         40/47
+  Installing : php-symfony-var-dumper-2.8.12-2.el7.noarch                                              41/47
+  Installing : php-symfony-console-2.8.12-2.el7.noarch                                                 42/47
+  Installing : php-symfony-event-dispatcher-2.8.12-2.el7.noarch                                        43/47
+  Installing : php-symfony-http-kernel-2.8.12-2.el7.noarch                                             44/47
+  Installing : libzip5-1.7.3-1.el7.remi.x86_64                                                         45/47
+  Installing : php-pecl-zip-1.19.0-1.el7.remi.7.2.x86_64                                               46/47
+  Installing : composer-1.10.10-1.el7.noarch                                                           47/47
+  Verifying  : php-composer-ca-bundle-1.2.7-1.el7.noarch                                                1/47
+  Verifying  : libzip5-1.7.3-1.el7.remi.x86_64                                                          2/47
+  Verifying  : php-password-compat-1.0.4-1.el7.noarch                                                   3/47
+  Verifying  : php-symfony-process-2.8.12-2.el7.noarch                                                  4/47
+  Verifying  : php-symfony-yaml-2.8.12-2.el7.noarch                                                     5/47
+  Verifying  : php-symfony-finder-2.8.12-2.el7.noarch                                                   6/47
+  Verifying  : gd-last-2.3.0-2.el7.remi.x86_64                                                          7/47
+  Verifying  : php-pecl-zip-1.19.0-1.el7.remi.7.2.x86_64                                                8/47
+  Verifying  : php-symfony-css-selector-2.8.12-2.el7.noarch                                             9/47
+  Verifying  : php-pdo-7.2.33-1.el7.remi.x86_64                                                        10/47
+  Verifying  : php-symfony-browser-kit-2.8.12-2.el7.noarch                                             11/47
+  Verifying  : php-justinrainbow-json-schema5-5.2.10-1.el7.noarch                                      12/47
+  Verifying  : php-symfony-debug-2.8.12-2.el7.noarch                                                   13/47
+  Verifying  : php-mbstring-7.2.33-1.el7.remi.x86_64                                                   14/47
+  Verifying  : php-symfony-var-dumper-2.8.12-2.el7.noarch                                              15/47
+  Verifying  : fribidi-1.0.2-1.el7_7.1.x86_64                                                          16/47
+  Verifying  : php-symfony-expression-language-2.8.12-2.el7.noarch                                     17/47
+  Verifying  : php-symfony-dependency-injection-2.8.12-2.el7.noarch                                    18/47
+  Verifying  : php-symfony-class-loader-2.8.12-2.el7.noarch                                            19/47
+  Verifying  : php-symfony-common-2.8.12-2.el7.noarch                                                  20/47
+  Verifying  : php-symfony-filesystem-2.8.12-2.el7.noarch                                              21/47
+  Verifying  : php-composer-xdebug-handler-1.4.2-1.el7.noarch                                          22/47
+  Verifying  : php-composer-semver-1.5.1-1.el7.noarch                                                  23/47
+  Verifying  : php-PsrLog-1.1.3-1.el7.noarch                                                           24/47
+  Verifying  : php-paragonie-random-compat-2.0.18-1.el7.noarch                                         25/47
+  Verifying  : php-symfony-dom-crawler-2.8.12-2.el7.noarch                                             26/47
+  Verifying  : harfbuzz-1.7.5-2.el7.x86_64                                                             27/47
+  Verifying  : php-fedora-autoloader-1.0.1-2.el7.noarch                                                28/47
+  Verifying  : php-symfony-http-kernel-2.8.12-2.el7.noarch                                             29/47
+  Verifying  : php-symfony-event-dispatcher-2.8.12-2.el7.noarch                                        30/47
+  Verifying  : php-process-7.2.33-1.el7.remi.x86_64                                                    31/47
+  Verifying  : libraqm-0.7.0-4.el7.x86_64                                                              32/47
+  Verifying  : php-xml-7.2.33-1.el7.remi.x86_64                                                        33/47
+  Verifying  : php-symfony-console-2.8.12-2.el7.noarch                                                 34/47
+  Verifying  : php-symfony-http-foundation-2.8.12-2.el7.noarch                                         35/47
+  Verifying  : php-symfony-polyfill-1.5.0-1.el7.noarch                                                 36/47
+  Verifying  : php-seld-phar-utils-1.1.0-1.el7.noarch                                                  37/47
+  Verifying  : jbigkit-libs-2.0-11.el7.x86_64                                                          38/47
+  Verifying  : libtiff-4.0.3-32.el7.x86_64                                                             39/47
+  Verifying  : graphite2-1.3.10-1.el7_3.x86_64                                                         40/47
+  Verifying  : oniguruma5php-6.9.5+rev1-2.el7.remi.x86_64                                              41/47
+  Verifying  : php-composer-spdx-licenses-1.5.4-1.el7.noarch                                           42/47
+  Verifying  : php-jsonlint-1.6.1-1.el7.noarch                                                         43/47
+  Verifying  : composer-1.10.10-1.el7.noarch                                                           44/47
+  Verifying  : libwebp7-1.0.3-1.el7.remi.x86_64                                                        45/47
+  Verifying  : php-symfony-config-2.8.12-2.el7.noarch                                                  46/47
+  Verifying  : php-gd-7.2.33-1.el7.remi.x86_64                                                         47/47
+
+Installed:
+  composer.noarch 0:1.10.10-1.el7
+
+Dependency Installed:
+  fribidi.x86_64 0:1.0.2-1.el7_7.1
+  gd-last.x86_64 0:2.3.0-2.el7.remi
+  graphite2.x86_64 0:1.3.10-1.el7_3
+  harfbuzz.x86_64 0:1.7.5-2.el7
+  jbigkit-libs.x86_64 0:2.0-11.el7
+  libraqm.x86_64 0:0.7.0-4.el7
+  libtiff.x86_64 0:4.0.3-32.el7
+  libwebp7.x86_64 0:1.0.3-1.el7.remi
+  libzip5.x86_64 0:1.7.3-1.el7.remi
+  oniguruma5php.x86_64 0:6.9.5+rev1-2.el7.remi
+  php-PsrLog.noarch 0:1.1.3-1.el7
+  php-composer-ca-bundle.noarch 0:1.2.7-1.el7
+  php-composer-semver.noarch 0:1.5.1-1.el7
+  php-composer-spdx-licenses.noarch 0:1.5.4-1.el7
+  php-composer-xdebug-handler.noarch 0:1.4.2-1.el7
+  php-fedora-autoloader.noarch 0:1.0.1-2.el7
+  php-gd.x86_64 0:7.2.33-1.el7.remi
+  php-jsonlint.noarch 0:1.6.1-1.el7
+  php-justinrainbow-json-schema5.noarch 0:5.2.10-1.el7
+  php-mbstring.x86_64 0:7.2.33-1.el7.remi
+  php-paragonie-random-compat.noarch 0:2.0.18-1.el7
+  php-password-compat.noarch 0:1.0.4-1.el7
+  php-pdo.x86_64 0:7.2.33-1.el7.remi
+  php-pecl-zip.x86_64 0:1.19.0-1.el7.remi.7.2
+  php-process.x86_64 0:7.2.33-1.el7.remi
+  php-seld-phar-utils.noarch 0:1.1.0-1.el7
+  php-symfony-browser-kit.noarch 0:2.8.12-2.el7
+  php-symfony-class-loader.noarch 0:2.8.12-2.el7
+  php-symfony-common.noarch 0:2.8.12-2.el7
+  php-symfony-config.noarch 0:2.8.12-2.el7
+  php-symfony-console.noarch 0:2.8.12-2.el7
+  php-symfony-css-selector.noarch 0:2.8.12-2.el7
+  php-symfony-debug.noarch 0:2.8.12-2.el7
+  php-symfony-dependency-injection.noarch 0:2.8.12-2.el7
+  php-symfony-dom-crawler.noarch 0:2.8.12-2.el7
+  php-symfony-event-dispatcher.noarch 0:2.8.12-2.el7
+  php-symfony-expression-language.noarch 0:2.8.12-2.el7
+  php-symfony-filesystem.noarch 0:2.8.12-2.el7
+  php-symfony-finder.noarch 0:2.8.12-2.el7
+  php-symfony-http-foundation.noarch 0:2.8.12-2.el7
+  php-symfony-http-kernel.noarch 0:2.8.12-2.el7
+  php-symfony-polyfill.noarch 0:1.5.0-1.el7
+  php-symfony-process.noarch 0:2.8.12-2.el7
+  php-symfony-var-dumper.noarch 0:2.8.12-2.el7
+  php-symfony-yaml.noarch 0:2.8.12-2.el7
+  php-xml.x86_64 0:7.2.33-1.el7.remi
+
+Complete!
+[vagrant@localhost ~]$ php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+[vagrant@localhost ~]$ php composer-setup.php
+All settings correct for using Composer
+Downloading...
+
+Composer (version 1.10.10) successfully installed to: /home/vagrant/composer.phar
+Use it: php composer.phar
+
+[vagrant@localhost ~]$ php -r "unlink('composer-setup.php');"
+[vagrant@localhost ~]$ sudo mv composer.phar /usr/bin/composer
+[vagrant@localhost ~]$ composer require monolog/monolog
+Using version ^2.1 for monolog/monolog
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Nothing to install or update
+Generating autoload files
+1 package you are using is looking for funding.
+Use the `composer fund` command to find out more!
+[vagrant@localhost ~]$ sudo systemctl restart php72-php-fpm
+[vagrant@localhost ~]$ sudo systemctl restart nginx
+[vagrant@localhost ~]$ cd /var/www/mysite.local/
+[vagrant@localhost mysite.local]$ composer install
+Composer could not find a composer.json file in /var/www/mysite.local
+To initialize a project, please create a composer.json file as described in the https://getcomposer.org/ "Get                                                                                                                                ting Started" section
+[vagrant@localhost mysite.local]$ composer require monolog/monolog
+Using version ^2.1 for monolog/monolog
+./composer.json has been created
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 2 installs, 0 updates, 0 removals
+  - Installing psr/log (1.1.3): Loading from cache
+  - Installing monolog/monolog (2.1.1): Loading from cache
+monolog/monolog suggests installing graylog2/gelf-php (Allow sending log messages to a GrayLog2 server)
+monolog/monolog suggests installing doctrine/couchdb (Allow sending log messages to a CouchDB server)
+monolog/monolog suggests installing ruflin/elastica (Allow sending log messages to an Elastic Search server)
+monolog/monolog suggests installing elasticsearch/elasticsearch (Allow sending log messages to an Elasticsear                                                                                                                                ch server via official client)
+monolog/monolog suggests installing php-amqplib/php-amqplib (Allow sending log messages to an AMQP server usi                                                                                                                                ng php-amqplib)
+monolog/monolog suggests installing ext-amqp (Allow sending log messages to an AMQP server (1.0+ required))
+monolog/monolog suggests installing ext-mongodb (Allow sending log messages to a MongoDB server (via driver))
+monolog/monolog suggests installing mongodb/mongodb (Allow sending log messages to a MongoDB server (via libr                                                                                                                                ary))
+monolog/monolog suggests installing aws/aws-sdk-php (Allow sending log messages to AWS services like DynamoDB                                                                                                                                )
+monolog/monolog suggests installing rollbar/rollbar (Allow sending log messages to Rollbar)
+monolog/monolog suggests installing php-console/php-console (Allow sending log messages to Google Chrome)
+Writing lock file
+Generating autoload files
+1 package you are using is looking for funding.
+Use the `composer fund` command to find out more!
+[vagrant@localhost mysite.local]$ sudo cat log/my.log
+[2020-08-26T19:12:27.951523+00:00] name.WARNING: Foo [] []
+[2020-08-26T19:12:27.952652+00:00] name.ERROR: Bar [] []
+[vagrant@localhost mysite.local]$ sudo chmod index.php
+chmod: missing operand after ‘index.php’
+Try 'chmod --help' for more information.
+[vagrant@localhost mysite.local]$ sudo chmod 777 index.php
+[vagrant@localhost mysite.local]$ sudo cat log/my.log
+[2020-08-26T19:12:27.951523+00:00] name.WARNING: Foo [] []
+[2020-08-26T19:12:27.952652+00:00] name.ERROR: Bar [] []
+[vagrant@localhost mysite.local]$ sudo cat log/time.log
+[2020-08-26T19:17:35.834380+00:00] time.DEBUG: 0 [] []
+[vagrant@localhost mysite.local]$ sudo cat log/time.log
+[2020-08-26T19:17:35.834380+00:00] time.DEBUG: 0 [] []
+[2020-08-26T19:19:14.076897+00:00] time.DEBUG: 1 [] []
+[2020-08-26T19:20:49.067948+00:00] time.DEBUG: 1 [] []
+[2020-08-26T19:20:51.935560+00:00] time.DEBUG: 0 [] []
+[vagrant@localhost mysite.local]$ sudo rm -r log/
+[vagrant@localhost mysite.local]$ sudo cat log/time.log
+cat: log/time.log: No such file or directory
+[vagrant@localhost mysite.local]$ sudo cat log/time.log
+[2020-08-26T19:22:22.062979+00:00] time.DEBUG: 0 [] []
+[vagrant@localhost mysite.local]$ sudo cat log/time.log
+[2020-08-26T19:22:22.062979+00:00] time.DEBUG: 0 [] []
+[2020-08-26T19:23:18.589518+00:00] time.DEBUG: 0 [] []
+[2020-08-26T19:24:24.204627+00:00] time.DEBUG: 0 [] []
+[2020-08-26T19:25:39.109595+00:00] time.DEBUG: 0 [] []
+[2020-08-26T19:27:44.669575+00:00] time.DEBUG: 0 [] []
+[2020-08-26T19:29:33.890137+00:00] time.DEBUG: 0 [] []
+[2020-08-26T19:32:48.929872+00:00] time.DEBUG: 0 [] []
+[2020-08-26T19:32:48.931437+00:00] time.DEBUG: 635352 [] []
+[vagrant@localhost mysite.local]$ sudo yum install php72-php-pecl-xdebug
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirror.reconn.ru
+ * epel: mirror.logol.ru
+ * extras: mirror.reconn.ru
+ * remi-php72: mirror.reconn.ru
+ * remi-safe: mirror.reconn.ru
+ * updates: mirror.logol.ru
+Resolving Dependencies
+--> Running transaction check
+---> Package php72-php-pecl-xdebug.x86_64 0:2.9.6-1.el7.remi will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+=============================================================================================================
+ Package                          Arch              Version                       Repository            Size
+=============================================================================================================
+Installing:
+ php72-php-pecl-xdebug            x86_64            2.9.6-1.el7.remi              remi-safe            173 k
+
+Transaction Summary
+=============================================================================================================
+Install  1 Package
+
+Total download size: 173 k
+Installed size: 516 k
+Is this ok [y/d/N]: y
+Downloading packages:
+php72-php-pecl-xdebug-2.9.6-1.el7.remi.x86_64.rpm                                     | 173 kB  00:00:00
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : php72-php-pecl-xdebug-2.9.6-1.el7.remi.x86_64                                             1/1
+  Verifying  : php72-php-pecl-xdebug-2.9.6-1.el7.remi.x86_64                                             1/1
+
+Installed:
+  php72-php-pecl-xdebug.x86_64 0:2.9.6-1.el7.remi
+
+Complete!
+[vagrant@localhost mysite.local]$ sudo cat log/usage.log
+cat: log/usage.log: No such file or directory
+[vagrant@localhost mysite.local]$ sudo cat log/usage.log
+cat: log/usage.log: No such file or directory
+[vagrant@localhost mysite.local]$ sudo cat log/usage.log
+[2020-08-26T19:43:15.980918+00:00] usage.DEBUG: Usage before start 576176 [] []
+[2020-08-26T19:43:16.058561+00:00] usage.DEBUG: Usage after finish 635800 [] []
+[vagrant@localhost mysite.local]$ ^C
+[vagrant@localhost mysite.local]$ sudo systemctl restart php72-php-fpm
+[vagrant@localhost mysite.local]$ sudo systemctl restart nginx
+[vagrant@localhost mysite.local]$ sudo chmod 777 /etc/opt/remi/php72/php.d/15-xdebug.ini
+[vagrant@localhost mysite.local]$ php —i | grep xdebug.ini
+[vagrant@localhost mysite.local]$ phpinfo();
+-bash: syntax error near unexpected token `;'
+[vagrant@localhost mysite.local]$ phpinfo()
+> ^C
+[vagrant@localhost mysite.local]$ sudo systemctl restart php72-php-fpm
+[vagrant@localhost mysite.local]$ sudo systemctl restart nginx
+[vagrant@localhost mysite.local]$ sudo chmod a+rwx /var/www/mysite.local/log/traces
+chmod: cannot access ‘/var/www/mysite.local/log/traces’: No such file or directory
+[vagrant@localhost mysite.local]$ sudo mkdir ^C
+[vagrant@localhost mysite.local]$ sudo mkdir /var/www/mysite.local/log/traces
+[vagrant@localhost mysite.local]$ sudo chmod a+rwx /var/www/mysite.local/log/traces
+[vagrant@localhost mysite.local]$ sudo chmod 777 /var/www/mysite.local/log/traces
+[vagrant@localhost mysite.local]$ sudo systemctl restart php72-php-fpm
+[vagrant@localhost mysite.local]$ sudo systemctl restart nginx
+[vagrant@localhost mysite.local]$ cat /log/traces/trace.2991569888.2140.xt
+cat: /log/traces/trace.2991569888.2140.xt: No such file or directory
+[vagrant@localhost mysite.local]$ cat log/traces/trace.2991569888.2140.xt
+TRACE START [2020-08-26 20:09:31]
+    0.0003     396376  +396376   -> {main}() /var/www/mysite.local/index.php:0
+    0.0004     396376       +0     -> deep_end($count = 1) /var/www/mysite.local/index.php:12
+    0.0005     396376       +0       -> deep_end($count = 2) /var/www/mysite.local/index.php:6
+    0.0005     396376       +0         -> deep_end($count = 3) /var/www/mysite.local/index.php:6
+    0.0005     396376       +0           -> deep_end($count = 4) /var/www/mysite.local/index.php:6
+    0.0005     396376       +0             -> deep_end($count = 5) /var/www/mysite.local/index.php:6
+    0.0005     396376       +0               -> deep_end($count = 6) /var/www/mysite.local/index.php:6
+    0.0005     396376       +0                 -> deep_end($count = 7) /var/www/mysite.local/index.php:6
+    0.0005     396376       +0                   -> deep_end($count = 8) /var/www/mysite.local/index.php:6
+    0.0005     396376       +0                     -> deep_end($count = 9) /var/www/mysite.local/index.php:6
+    0.0005     396376       +0                       -> deep_end($count = 10) /var/www/mysite.local/index.php                                                                                                                                :6
+    0.0005     396376       +0                         -> deep_end($count = 11) /var/www/mysite.local/index.p                                                                                                                                hp:6
+    0.0005     396376       +0                           -> deep_end($count = 12) /var/www/mysite.local/index                                                                                                                                .php:6
+    0.0005     396376       +0                             -> deep_end($count = 13) /var/www/mysite.local/ind                                                                                                                                ex.php:6
+    0.0006     396376       +0                               -> deep_end($count = 14) /var/www/mysite.local/i                                                                                                                                ndex.php:6
+    0.0006     396376       +0                                 -> deep_end($count = 15) /var/www/mysite.local                                                                                                                                /index.php:6
+    0.0006     396376       +0                                   -> deep_end($count = 16) /var/www/mysite.loc                                                                                                                                al/index.php:6
+    0.0006     396376       +0                                     -> deep_end($count = 17) /var/www/mysite.l                                                                                                                                ocal/index.php:6
+    0.0006     396376       +0                                       -> deep_end($count = 18) /var/www/mysite                                                                                                                                .local/index.php:6
+    0.0006     396376       +0                                         -> deep_end($count = 19) /var/www/mysi                                                                                                                                te.local/index.php:6
+    0.0006     396376       +0                                           -> deep_end($count = 20) /var/www/my                                                                                                                                site.local/index.php:6
+    0.0006     396376       +0                                             -> deep_end($count = 21) /var/www/                                                                                                                                mysite.local/index.php:6
+    0.0006     396376       +0                                               -> deep_end($count = 22) /var/ww                                                                                                                                w/mysite.local/index.php:6
+    0.0006     396376       +0                                                 -> deep_end($count = 23) /var/                                                                                                                                www/mysite.local/index.php:6
+    0.0006     396376       +0                                                   -> deep_end($count = 24) /va                                                                                                                                r/www/mysite.local/index.php:6
+    0.0006     396376       +0                                                     -> deep_end($count = 25) /                                                                                                                                var/www/mysite.local/index.php:6
+    0.0006     396376       +0                                                       -> deep_end($count = 26)                                                                                                                                 /var/www/mysite.local/index.php:6
+    0.0007     396376       +0                                                         -> deep_end($count = 2                                                                                                                                7) /var/www/mysite.local/index.php:6
+    0.0007     396376       +0                                                           -> deep_end($count =                                                                                                                                 28) /var/www/mysite.local/index.php:6
+    0.0007     396376       +0                                                             -> deep_end($count                                                                                                                                 = 29) /var/www/mysite.local/index.php:6
+    0.0007     396376       +0                                                               -> deep_end($cou                                                                                                                                nt = 30) /var/www/mysite.local/index.php:6
+    0.0007     396376       +0                                                                 -> deep_end($c                                                                                                                                ount = 31) /var/www/mysite.local/index.php:6
+    0.0007     396376       +0                                                                   -> deep_end(                                                                                                                                $count = 32) /var/www/mysite.local/index.php:6
+    0.0007     396376       +0                                                                     -> deep_en                                                                                                                                d($count = 33) /var/www/mysite.local/index.php:6
+    0.0007     396376       +0                                                                       -> deep_                                                                                                                                end($count = 34) /var/www/mysite.local/index.php:6
+    0.0007     396376       +0                                                                         -> dee                                                                                                                                p_end($count = 35) /var/www/mysite.local/index.php:6
+    0.0007     396376       +0                                                                           -> d                                                                                                                                eep_end($count = 36) /var/www/mysite.local/index.php:6
+    0.0007     396376       +0                                                                             ->                                                                                                                                 deep_end($count = 37) /var/www/mysite.local/index.php:6
+    0.0008     396376       +0                                                                                                                                                                                                               -> deep_end($count = 38) /var/www/mysite.local/index.php:6
+    0.0008     396376       +0                                                                                                                                                                                                                 -> deep_end($count = 39) /var/www/mysite.local/index.php:6
+    0.0008     396376       +0                                                                                                                                                                                                                   -> deep_end($count = 40) /var/www/mysite.local/index.php:6
+    0.0008     396376       +0                                                                                                                                                                                                                     -> deep_end($count = 41) /var/www/mysite.local/index.php:6
+    0.0008     396376       +0                                                                                                                                                                                                                       -> deep_end($count = 42) /var/www/mysite.local/index.php:6
+    0.0008     396376       +0                                                                                                                                                                                                                         -> deep_end($count = 43) /var/www/mysite.local/index.php:6
+    0.0008     396376       +0                                                                                                                                                                                                                           -> deep_end($count = 44) /var/www/mysite.local/index.php:6
+    0.0008     396376       +0                                                                                                                                                                                                                             -> deep_end($count = 45) /var/www/mysite.local/index.php:6
+    0.0008     396376       +0                                                                                                                                                                                                                               -> deep_end($count = 46) /var/www/mysite.local/index.php:6
+    0.0008     396376       +0                                                                                                                                                                                                                                 -> deep_end($count = 47) /var/www/mysite.local/index.php:6
+    0.0008     396376       +0                                                                                                                                                                                                                                   -> trigger_error('going off the deep end!') /var/www/mysite.local/index.php:9
+    0.0011     396376                                                                                                                                                                                                                                            >=> TRUE
+    0.0014     317096
+TRACE END   [2020-08-26 20:09:31]
+
+[vagrant@localhost mysite.local]$ cat log/traces/trace.2991569888.2140.xt
+TRACE START [2020-08-26 20:09:31]
+    0.0003     396376  +396376   -> {main}() /var/www/mysite.local/index.php:0
+    0.0004     396376       +0     -> deep_end($count = 1) /var/www/mysite.local/index.php:12
+    0.0005     396376       +0       -> deep_end($count = 2) /var/www/mysite.local/index.php:6
+    0.0005     396376       +0         -> deep_end($count = 3) /var/www/mysite.local/index.php:6
+    0.0005     396376       +0           -> deep_end($count = 4) /var/www/mysite.local/index.php:6
+    0.0005     396376       +0             -> deep_end($count = 5) /var/www/mysite.local/index.php:6
+    0.0005     396376       +0               -> deep_end($count = 6) /var/www/mysite.local/index.php:6
+    0.0005     396376       +0                 -> deep_end($count = 7) /var/www/mysite.local/index.php:6
+    0.0005     396376       +0                   -> deep_end($count = 8) /var/www/mysite.local/index.php:6
+    0.0005     396376       +0                     -> deep_end($count = 9) /var/www/mysite.local/index.php:6
+    0.0005     396376       +0                       -> deep_end($count = 10) /var/www/mysite.local/index.php:6
+    0.0005     396376       +0                         -> deep_end($count = 11) /var/www/mysite.local/index.php:6
+    0.0005     396376       +0                           -> deep_end($count = 12) /var/www/mysite.local/index.php:6
+    0.0005     396376       +0                             -> deep_end($count = 13) /var/www/mysite.local/index.php:6
+    0.0006     396376       +0                               -> deep_end($count = 14) /var/www/mysite.local/index.php:6
+    0.0006     396376       +0                                 -> deep_end($count = 15) /var/www/mysite.local/index.php:6
+    0.0006     396376       +0                                   -> deep_end($count = 16) /var/www/mysite.local/index.php:6
+    0.0006     396376       +0                                     -> deep_end($count = 17) /var/www/mysite.local/index.php:6
+    0.0006     396376       +0                                       -> deep_end($count = 18) /var/www/mysite.local/index.php:6
+    0.0006     396376       +0                                         -> deep_end($count = 19) /var/www/mysite.local/index.php:6
+    0.0006     396376       +0                                           -> deep_end($count = 20) /var/www/mysite.local/index.php:6
+    0.0006     396376       +0                                             -> deep_end($count = 21) /var/www/mysite.local/index.php:6
+    0.0006     396376       +0                                               -> deep_end($count = 22) /var/www/mysite.local/index.php:6
+    0.0006     396376       +0                                                 -> deep_end($count = 23) /var/www/mysite.local/index.php:6
+    0.0006     396376       +0                                                   -> deep_end($count = 24) /var/www/mysite.local/index.php:6
+    0.0006     396376       +0                                                     -> deep_end($count = 25) /var/www/mysite.local/index.php:6
+    0.0006     396376       +0                                                       -> deep_end($count = 26) /var/www/mysite.local/index.php:6
+    0.0007     396376       +0                                                         -> deep_end($count = 27) /var/www/mysite.local/index.php:6
+    0.0007     396376       +0                                                           -> deep_end($count = 28) /var/www/mysite.local/index.php:6
+    0.0007     396376       +0                                                             -> deep_end($count = 29) /var/www/mysite.local/index.php:6
+    0.0007     396376       +0                                                               -> deep_end($count = 30) /var/www/mysite.local/index.php:6
+    0.0007     396376       +0                                                                 -> deep_end($count = 31) /var/www/mysite.local/index.php:6
+    0.0007     396376       +0                                                                   -> deep_end($count = 32) /var/www/mysite.local/index.php:6
+    0.0007     396376       +0                                                                     -> deep_end($count = 33) /var/www/mysite.local/index.php:6
+    0.0007     396376       +0                                                                       -> deep_end($count = 34) /var/www/mysite.local/index.php:6
+    0.0007     396376       +0                                                                         -> deep_end($count = 35) /var/www/mysite.local/index.php:6
+    0.0007     396376       +0                                                                           -> deep_end($count = 36) /var/www/mysite.local/index.php:6
+    0.0007     396376       +0                                                                             -> deep_end($count = 37) /var/www/mysite.local/index.php:6
+    0.0008     396376       +0                                                                               -> deep_end($count = 38) /var/www/mysite.local/index.php:6
+    0.0008     396376       +0                                                                                 -> deep_end($count = 39) /var/www/mysite.local/index.php:6
+    0.0008     396376       +0                                                                                   -> deep_end($count = 40) /var/www/mysite.local/index.php:6
+    0.0008     396376       +0                                                                                     -> deep_end($count = 41) /var/www/mysite.local/index.php:6
+    0.0008     396376       +0                                                                                       -> deep_end($count = 42) /var/www/mysite.local/index.php:6
+    0.0008     396376       +0                                                                                         -> deep_end($count = 43) /var/www/mysite.local/index.php:6
+    0.0008     396376       +0                                                                                           -> deep_end($count = 44) /var/www/mysite.local/index.php:6
+    0.0008     396376       +0                                                                                             -> deep_end($count = 45) /var/www/mysite.local/index.php:6
+    0.0008     396376       +0                                                                                               -> deep_end($count = 46) /var/www/mysite.local/index.php:6
+    0.0008     396376       +0                                                                                                 -> deep_end($count = 47) /var/www/mysite.local/index.php:6
+    0.0008     396376       +0                                                                                                   -> trigger_error('going off the deep end!') /var/www/mysite.local/index.php:9
+    0.0011     396376                                                                                                            >=> TRUE
+    0.0014     317096
+TRACE END   [2020-08-26 20:09:31]
+
+[vagrant@localhost mysite.local]$ ls log/traces
+trace.2991569888.2138.xt  trace.2991569888.2139.xt  trace.2991569888.2140.xt  trace.2991569888.2141.xt  trace.2991569888.2142.xt
+[vagrant@localhost mysite.local]$ cat log/traces/trace.2991569888.2142
+cat: log/traces/trace.2991569888.2142: No such file or directory
+[vagrant@localhost mysite.local]$ cat log/traces/trace.2991569888.21
+trace.2991569888.2138.xt  trace.2991569888.2139.xt  trace.2991569888.2140.xt  trace.2991569888.2141.xt  trace.2991569888.2142.xt
+[vagrant@localhost mysite.local]$ cat log/traces/trace.2991569888.21
+trace.2991569888.2138.xt  trace.2991569888.2139.xt  trace.2991569888.2140.xt  trace.2991569888.2141.xt  trace.2991569888.2142.xt
+[vagrant@localhost mysite.local]$ cat log/traces/trace.2991569888.21
+trace.2991569888.2138.xt  trace.2991569888.2139.xt  trace.2991569888.2140.xt  trace.2991569888.2141.xt  trace.2991569888.2142.xt
+[vagrant@localhost mysite.local]$ cat log/traces/trace.2991569888.2142.xt
+TRACE START [2020-08-26 20:27:17]
+    0.0002     404992  +404992   -> {main}() /var/www/mysite.local/upload.php:0
+    0.0002     405056      +64     -> basename('logo-transparent.png') /var/www/mysite.local/upload.php:6
+    0.0002     405104              >=> 'logo-transparent.png'
+    0.0002     405080      +24     -> pathinfo('./pics/logo-transparent.png', 4) /var/www/mysite.local/upload.php:12
+    0.0003     405112              >=> 'png'
+    0.0003     405112      +32     -> strtolower('png') /var/www/mysite.local/upload.php:12
+    0.0003     405112              >=> 'png'
+    0.0003     405112       +0     -> in_array('png', array (0 => 'jpg', 1 => 'png')) /var/www/mysite.local/upload.php:13
+    0.0003     405112              >=> TRUE
+    0.0003     405112       +0     -> move_uploaded_file('/tmp/phpPTT0iF', './pics/logo-transparent.png') /var/www/mysite.local/upload.php:17
+    0.0004     405128              >=> TRUE
+    0.0004     405128      +16     -> header('Location: ./index.php') /var/www/mysite.local/upload.php:18
+    0.0005     405192              >=> NULL
+    0.0007     323872
+TRACE END   [2020-08-26 20:27:17]
+
+[vagrant@localhost mysite.local]$
