@@ -1,0 +1,504 @@
+login as: vagrant
+vagrant@127.0.0.1's password:
+Last login: Wed Aug 26 18:35:01 2020 from 10.0.2.2
+[vagrant@localhost ~]$ sudo yum install https://repo.percona.com/yum/percona-release-latest.noarch.rpm
+Loaded plugins: fastestmirror
+percona-release-latest.noarch.rpm                        |  19 kB     00:00
+Examining /var/tmp/yum-root-qWWHax/percona-release-latest.noarch.rpm: percona-release-1.0-24.noarch
+Marking /var/tmp/yum-root-qWWHax/percona-release-latest.noarch.rpm to be installed
+Resolving Dependencies
+--> Running transaction check
+---> Package percona-release.noarch 0:1.0-24 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package            Arch      Version   Repository                         Size
+================================================================================
+Installing:
+ percona-release    noarch    1.0-24    /percona-release-latest.noarch     30 k
+
+Transaction Summary
+================================================================================
+Install  1 Package
+
+Total size: 30 k
+Installed size: 30 k
+Is this ok [y/d/N]: y
+Downloading packages:
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : percona-release-1.0-24.noarch                                1/1
+* Enabling the Percona Original repository
+<*> All done!
+* Enabling the Percona Release repository
+<*> All done!
+The percona-release package now contains a percona-release script that can enable additional repositories for our newer products.
+
+For example, to enable the Percona Server 8.0 repository use:
+
+  percona-release setup ps80
+
+Note: To avoid conflicts with older product versions, the percona-release setup command may disable our original repository for some products.
+
+For more information, please visit:
+  https://www.percona.com/doc/percona-repo-config/percona-release.html
+
+  Verifying  : percona-release-1.0-24.noarch                                1/1
+
+Installed:
+  percona-release.noarch 0:1.0-24
+
+Complete!
+[vagrant@localhost ~]$ sudo yum install percona-server-server
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+epel/x86_64/metalink                                     | 7.5 kB     00:00
+ * base: mirror.logol.ru
+ * epel: mirror.cherryservers.com
+ * extras: mirror.reconn.ru
+ * remi-php72: mirror.reconn.ru
+ * remi-safe: mirror.reconn.ru
+ * updates: mirror.reconn.ru
+base                                                     | 3.6 kB     00:00
+epel                                                     | 4.7 kB     00:00
+extras                                                   | 2.9 kB     00:00
+percona-release-noarch                                   | 2.9 kB     00:00
+percona-release-x86_64                                   | 2.9 kB     00:00
+prel-release-x86_64                                      | 2.9 kB     00:00
+remi-php72                                               | 3.0 kB     00:00
+remi-safe                                                | 3.0 kB     00:00
+updates                                                  | 2.9 kB     00:00
+(1/8): prel-release-x86_64/7/primary_db                    | 1.1 kB   00:00
+(2/8): percona-release-noarch/7/primary_db                 |  24 kB   00:00
+(3/8): epel/x86_64/updateinfo                              | 1.0 MB   00:01
+(4/8): percona-release-x86_64/7/primary_db                 | 1.1 MB   00:02
+(5/8): remi-php72/primary_db                               | 240 kB   00:02
+(6/8): updates/7/x86_64/primary_db                         | 4.5 MB   00:05
+(7/8): remi-safe/primary_db                                | 1.8 MB   00:07
+(8/8): epel/x86_64/primary_db                              | 6.9 MB   00:10
+No package percona-server-server available.
+Error: Nothing to do
+[vagrant@localhost ~]$ ^C
+[vagrant@localhost ~]$ yum list | grep percona
+percona-release.noarch                     1.0-24                     @/percona-release-latest.noarch
+Percona-Server-55-debuginfo.x86_64         5.5.62-rel38.14.el7        percona-release-x86_64
+Percona-Server-56-debuginfo.x86_64         5.6.49-rel89.0.1.el7       percona-release-x86_64
+Percona-Server-57-debuginfo.x86_64         5.7.31-34.1.el7            percona-release-x86_64
+Percona-Server-80-info.x86_64              8.0-1.el7                  percona-release-x86_64
+Percona-Server-MongoDB.x86_64              3.0.15-1.10.el7            percona-release-x86_64
+Percona-Server-MongoDB-32.x86_64           3.2.22-3.13.el7            percona-release-x86_64
+Percona-Server-MongoDB-32-debuginfo.x86_64 3.2.22-3.13.el7            percona-release-x86_64
+Percona-Server-MongoDB-32-mongos.x86_64    3.2.22-3.13.el7            percona-release-x86_64
+Percona-Server-MongoDB-32-server.x86_64    3.2.22-3.13.el7            percona-release-x86_64
+Percona-Server-MongoDB-32-shell.x86_64     3.2.22-3.13.el7            percona-release-x86_64
+Percona-Server-MongoDB-32-tools.x86_64     3.2.22-3.13.el7            percona-release-x86_64
+Percona-Server-MongoDB-34.x86_64           3.4.24-3.0.el7             percona-release-x86_64
+Percona-Server-MongoDB-34-debuginfo.x86_64 3.4.24-3.0.el7             percona-release-x86_64
+Percona-Server-MongoDB-34-mongos.x86_64    3.4.24-3.0.el7             percona-release-x86_64
+Percona-Server-MongoDB-34-server.x86_64    3.4.24-3.0.el7             percona-release-x86_64
+Percona-Server-MongoDB-34-shell.x86_64     3.4.24-3.0.el7             percona-release-x86_64
+Percona-Server-MongoDB-34-tools.x86_64     3.4.24-3.0.el7             percona-release-x86_64
+Percona-Server-MongoDB-36.x86_64           3.6.19-7.0.el7             percona-release-x86_64
+Percona-Server-MongoDB-36-debuginfo.x86_64 3.6.19-7.0.el7             percona-release-x86_64
+Percona-Server-MongoDB-36-mongos.x86_64    3.6.19-7.0.el7             percona-release-x86_64
+Percona-Server-MongoDB-36-server.x86_64    3.6.19-7.0.el7             percona-release-x86_64
+Percona-Server-MongoDB-36-shell.x86_64     3.6.19-7.0.el7             percona-release-x86_64
+Percona-Server-MongoDB-36-tools.x86_64     3.6.19-7.0.el7             percona-release-x86_64
+Percona-Server-MongoDB-debuginfo.x86_64    3.0.15-1.10.el7            percona-release-x86_64
+Percona-Server-MongoDB-mongos.x86_64       3.0.15-1.10.el7            percona-release-x86_64
+Percona-Server-MongoDB-server.x86_64       3.0.15-1.10.el7            percona-release-x86_64
+Percona-Server-MongoDB-shell.x86_64        3.0.15-1.10.el7            percona-release-x86_64
+Percona-Server-MongoDB-tools.x86_64        3.0.15-1.10.el7            percona-release-x86_64
+Percona-Server-client-55.x86_64            5.5.62-rel38.14.el7        percona-release-x86_64
+Percona-Server-client-56.x86_64            5.6.49-rel89.0.1.el7       percona-release-x86_64
+Percona-Server-client-57.x86_64            5.7.31-34.1.el7            percona-release-x86_64
+Percona-Server-devel-55.x86_64             5.5.62-rel38.14.el7        percona-release-x86_64
+Percona-Server-devel-56.x86_64             5.6.49-rel89.0.1.el7       percona-release-x86_64
+Percona-Server-devel-57.x86_64             5.7.31-34.1.el7            percona-release-x86_64
+Percona-Server-rocksdb-57.x86_64           5.7.31-34.1.el7            percona-release-x86_64
+Percona-Server-selinux-55.noarch           5.5.62-rel38.14.el7        percona-release-x86_64
+Percona-Server-selinux-56.noarch           5.6.49-rel89.0.1.el7       percona-release-x86_64
+Percona-Server-server-55.x86_64            5.5.62-rel38.14.el7        percona-release-x86_64
+Percona-Server-server-56.x86_64            5.6.49-rel89.0.1.el7       percona-release-x86_64
+Percona-Server-server-57.x86_64            5.7.31-34.1.el7            percona-release-x86_64
+Percona-Server-shared-55.x86_64            5.5.62-rel38.14.el7        percona-release-x86_64
+Percona-Server-shared-56.x86_64            5.6.49-rel89.0.1.el7       percona-release-x86_64
+Percona-Server-shared-57.x86_64            5.7.31-34.1.el7            percona-release-x86_64
+Percona-Server-shared-compat-57.x86_64     5.7.31-34.1.el7            percona-release-x86_64
+Percona-Server-test-55.x86_64              5.5.62-rel38.14.el7        percona-release-x86_64
+Percona-Server-test-56.x86_64              5.6.49-rel89.0.1.el7       percona-release-x86_64
+Percona-Server-test-57.x86_64              5.7.31-34.1.el7            percona-release-x86_64
+Percona-Server-tokudb-56.x86_64            5.6.49-rel89.0.1.el7       percona-release-x86_64
+Percona-Server-tokudb-57.x86_64            5.7.31-34.1.el7            percona-release-x86_64
+Percona-XtraDB-Cluster-55.x86_64           1:5.5.41-25.12.855.el7     percona-release-x86_64
+Percona-XtraDB-Cluster-55-debuginfo.x86_64 1:5.5.41-25.12.855.el7     percona-release-x86_64
+Percona-XtraDB-Cluster-55-g3.x86_64        1:5.5.41-25.12.855.el7     percona-release-x86_64
+Percona-XtraDB-Cluster-56.x86_64           1:5.6.48-28.40.1.el7       percona-release-x86_64
+Percona-XtraDB-Cluster-56-debuginfo.x86_64 1:5.6.48-28.40.1.el7       percona-release-x86_64
+Percona-XtraDB-Cluster-57.x86_64           5.7.30-31.43.1.el7         percona-release-x86_64
+Percona-XtraDB-Cluster-57-debuginfo.x86_64 5.7.30-31.43.1.el7         percona-release-x86_64
+Percona-XtraDB-Cluster-client-55.x86_64    1:5.5.41-25.12.855.el7     percona-release-x86_64
+Percona-XtraDB-Cluster-client-56.x86_64    1:5.6.48-28.40.1.el7       percona-release-x86_64
+Percona-XtraDB-Cluster-client-57.x86_64    5.7.30-31.43.1.el7         percona-release-x86_64
+Percona-XtraDB-Cluster-devel-55.x86_64     1:5.5.41-25.12.855.el7     percona-release-x86_64
+Percona-XtraDB-Cluster-devel-56.x86_64     1:5.6.48-28.40.1.el7       percona-release-x86_64
+Percona-XtraDB-Cluster-devel-57.x86_64     5.7.30-31.43.1.el7         percona-release-x86_64
+Percona-XtraDB-Cluster-full-55.x86_64      1:5.5.41-25.12.855.el7     percona-release-x86_64
+Percona-XtraDB-Cluster-full-55-g3.x86_64   1:5.5.41-25.12.855.el7     percona-release-x86_64
+Percona-XtraDB-Cluster-full-56.x86_64      1:5.6.48-28.40.1.el7       percona-release-x86_64
+Percona-XtraDB-Cluster-full-57.x86_64      5.7.30-31.43.1.el7         percona-release-x86_64
+Percona-XtraDB-Cluster-galera-2.x86_64     2.12-1.2682.rhel7          percona-release-x86_64
+                                           2.12-1.2682.rhel7          percona-release-x86_64
+Percona-XtraDB-Cluster-galera-3.x86_64     3.40-1.el7                 percona-release-x86_64
+                                           3.40-1.el7                 percona-release-x86_64
+Percona-XtraDB-Cluster-garbd-2.x86_64      2.12-1.2682.rhel7          percona-release-x86_64
+Percona-XtraDB-Cluster-garbd-3.x86_64      3.40-1.el7                 percona-release-x86_64
+Percona-XtraDB-Cluster-garbd-57.x86_64     5.7.30-31.43.1.el7         percona-release-x86_64
+Percona-XtraDB-Cluster-server-55.x86_64    1:5.5.41-25.12.855.el7     percona-release-x86_64
+Percona-XtraDB-Cluster-server-56.x86_64    1:5.6.48-28.40.1.el7       percona-release-x86_64
+Percona-XtraDB-Cluster-server-57.x86_64    5.7.30-31.43.1.el7         percona-release-x86_64
+Percona-XtraDB-Cluster-shared-55.x86_64    1:5.5.41-25.12.855.el7     percona-release-x86_64
+Percona-XtraDB-Cluster-shared-56.x86_64    1:5.6.48-28.40.1.el7       percona-release-x86_64
+Percona-XtraDB-Cluster-shared-57.x86_64    5.7.30-31.43.1.el7         percona-release-x86_64
+                                           5.7.30-31.43.1.el7         percona-release-x86_64
+Percona-XtraDB-Cluster-test-55.x86_64      1:5.5.41-25.12.855.el7     percona-release-x86_64
+Percona-XtraDB-Cluster-test-56.x86_64      1:5.6.48-28.40.1.el7       percona-release-x86_64
+Percona-XtraDB-Cluster-test-57.x86_64      5.7.30-31.43.1.el7         percona-release-x86_64
+jemalloc-debuginfo.x86_64                  3.3.1-1.el7                percona-release-x86_64
+libeatmydata.x86_64                        0.1-00.21.el7.centos       percona-release-x86_64
+libeatmydata-debuginfo.x86_64              0.1-00.21.el7.centos       percona-release-x86_64
+percona-cacti-templates.noarch             1.1.8-1                    percona-release-noarch
+percona-nagios-plugins.noarch              1.1.8-1                    percona-release-noarch
+percona-toolkit.noarch                     2.2.20-1                   percona-release-noarch
+percona-toolkit.x86_64                     3.2.1-1.el7                percona-release-x86_64
+percona-toolkit-debuginfo.x86_64           3.0.13-1.el7               percona-release-x86_64
+percona-xtrabackup.x86_64                  2.3.10-1.el7               percona-release-x86_64
+percona-xtrabackup-22.x86_64               2.2.13-1.el7               percona-release-x86_64
+percona-xtrabackup-22-debuginfo.x86_64     2.2.13-1.el7               percona-release-x86_64
+percona-xtrabackup-24.x86_64               2.4.20-1.el7               percona-release-x86_64
+percona-xtrabackup-24-debuginfo.x86_64     2.4.20-1.el7               percona-release-x86_64
+percona-xtrabackup-80.x86_64               8.0.14-1.el7               percona-release-x86_64
+percona-xtrabackup-80-debuginfo.x86_64     8.0.14-1.el7               percona-release-x86_64
+percona-xtrabackup-debuginfo.x86_64        2.3.10-1.el7               percona-release-x86_64
+percona-xtrabackup-test.x86_64             2.3.10-1.el7               percona-release-x86_64
+percona-xtrabackup-test-22.x86_64          2.2.13-1.el7               percona-release-x86_64
+percona-xtrabackup-test-24.x86_64          2.4.20-1.el7               percona-release-x86_64
+percona-xtrabackup-test-80.x86_64          8.0.14-1.el7               percona-release-x86_64
+percona-zabbix-templates.noarch            1.1.8-1                    percona-release-noarch
+pmm-client.x86_64                          1.17.4-1.el7               percona-release-x86_64
+pmm2-client.x86_64                         2.9.1-6.el7                percona-release-x86_64
+proxysql.x86_64                            1.4.16-1.1.el7             percona-release-x86_64
+proxysql2.x86_64                           2.0.13-1.1.el7             percona-release-x86_64
+qpress.x86_64                              11-1.el7                   percona-release-x86_64
+qpress-debuginfo.x86_64                    11-1.el7                   percona-release-x86_64
+sysbench.x86_64                            1.0.20-6.el7               percona-release-x86_64
+sysbench-debuginfo.x86_64                  1.0.20-6.el7               percona-release-x86_64
+sysbench-tpcc.x86_64                       1.0.20-6.el7               percona-release-x86_64
+[vagrant@localhost ~]$ yum install Percona-Server-server-57
+Loaded plugins: fastestmirror
+You need to be root to perform this command.
+[vagrant@localhost ~]$ sudo yum install Percona-Server-server-57
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirror.logol.ru
+ * epel: mirror.cherryservers.com
+ * extras: mirror.reconn.ru
+ * remi-php72: mirror.reconn.ru
+ * remi-safe: mirror.reconn.ru
+ * updates: mirror.reconn.ru
+Resolving Dependencies
+--> Running transaction check
+---> Package Percona-Server-server-57.x86_64 0:5.7.31-34.1.el7 will be installed
+--> Processing Dependency: net-tools for package: Percona-Server-server-57-5.7.31-34.1.el7.x86_64
+--> Processing Dependency: libaio.so.1(LIBAIO_0.1)(64bit) for package: Percona-Server-server-57-5.7.31-34.1.el7.x86_64
+--> Processing Dependency: libaio.so.1(LIBAIO_0.4)(64bit) for package: Percona-Server-server-57-5.7.31-34.1.el7.x86_64
+--> Processing Dependency: Percona-Server-client-57 for package: Percona-Server-server-57-5.7.31-34.1.el7.x86_64
+--> Processing Dependency: Percona-Server-shared-57 for package: Percona-Server-server-57-5.7.31-34.1.el7.x86_64
+--> Processing Dependency: libaio.so.1()(64bit) for package: Percona-Server-server-57-5.7.31-34.1.el7.x86_64
+--> Running transaction check
+---> Package Percona-Server-client-57.x86_64 0:5.7.31-34.1.el7 will be installed
+---> Package Percona-Server-shared-57.x86_64 0:5.7.31-34.1.el7 will be installed
+--> Processing Dependency: Percona-Server-shared-compat-57 for package: Percona-Server-shared-57-5.7.31-34.1.el7.x86_64
+---> Package libaio.x86_64 0:0.3.109-13.el7 will be installed
+---> Package net-tools.x86_64 0:2.0-0.25.20131004git.el7 will be installed
+--> Running transaction check
+---> Package Percona-Server-shared-compat-57.x86_64 0:5.7.31-34.1.el7 will be obsoleting
+---> Package mariadb-libs.x86_64 1:5.5.65-1.el7 will be obsoleted
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package                   Arch   Version          Repository              Size
+================================================================================
+Installing:
+ Percona-Server-server-57  x86_64 5.7.31-34.1.el7  percona-release-x86_64  39 M
+ Percona-Server-shared-compat-57
+                           x86_64 5.7.31-34.1.el7  percona-release-x86_64 1.2 M
+     replacing  mariadb-libs.x86_64 1:5.5.65-1.el7
+Installing for dependencies:
+ Percona-Server-client-57  x86_64 5.7.31-34.1.el7  percona-release-x86_64 7.2 M
+ Percona-Server-shared-57  x86_64 5.7.31-34.1.el7  percona-release-x86_64 743 k
+ libaio                    x86_64 0.3.109-13.el7   base                    24 k
+ net-tools                 x86_64 2.0-0.25.20131004git.el7
+                                                   base                   306 k
+
+Transaction Summary
+================================================================================
+Install  2 Packages (+4 Dependent packages)
+
+Total download size: 49 M
+Is this ok [y/d/N]: y
+Downloading packages:
+warning: /var/cache/yum/x86_64/7/percona-release-x86_64/packages/Percona-Server-client-57-5.7.31-34.1.el7.x86_64.rpm: Header V4 RSA/SHA256 Signature, key ID 8507efa5: NOKEY
+Public key for Percona-Server-client-57-5.7.31-34.1.el7.x86_64.rpm is not installed
+(1/6): Percona-Server-client-57-5.7.31-34.1.el7.x86_64.rpm | 7.2 MB   00:11
+(2/6): Percona-Server-shared-57-5.7.31-34.1.el7.x86_64.rpm | 743 kB   00:01
+(3/6): libaio-0.3.109-13.el7.x86_64.rpm                    |  24 kB   00:00
+(4/6): net-tools-2.0-0.25.20131004git.el7.x86_64.rpm       | 306 kB   00:00
+(5/6): Percona-Server-shared-compat-57-5.7.31-34.1.el7.x86 | 1.2 MB   00:01
+(6/6): Percona-Server-server-57-5.7.31-34.1.el7.x86_64.rpm |  39 MB   00:56
+--------------------------------------------------------------------------------
+Total                                              879 kB/s |  49 MB  00:56
+Retrieving key from file:///etc/pki/rpm-gpg/PERCONA-PACKAGING-KEY
+Importing GPG key 0x8507EFA5:
+ Userid     : "Percona MySQL Development Team (Packaging key) <mysql-dev@percona.com>"
+ Fingerprint: 4d1b b29d 63d9 8e42 2b21 13b1 9334 a25f 8507 efa5
+ Package    : percona-release-1.0-24.noarch (@/percona-release-latest.noarch)
+ From       : /etc/pki/rpm-gpg/PERCONA-PACKAGING-KEY
+Is this ok [y/N]: y
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : libaio-0.3.109-13.el7.x86_64                                 1/7
+  Installing : net-tools-2.0-0.25.20131004git.el7.x86_64                    2/7
+  Installing : Percona-Server-shared-compat-57-5.7.31-34.1.el7.x86_64       3/7
+  Installing : Percona-Server-shared-57-5.7.31-34.1.el7.x86_64              4/7
+  Installing : Percona-Server-client-57-5.7.31-34.1.el7.x86_64              5/7
+  Installing : Percona-Server-server-57-5.7.31-34.1.el7.x86_64              6/7
+ -------------
+   *  The suggested mysql options and settings are in /etc/percona-server.conf.d/mysqld.cnf
+   *  If you want to use mysqld.cnf as default configuration file please make backup of /etc/my.cnf
+   *  Once it is done please execute the following commands:
+ rm -rf /etc/my.cnf
+ update-alternatives --install /etc/my.cnf my.cnf "/etc/percona-server.cnf" 200
+ -------------
+Percona Server is distributed with several useful UDF (User Defined Function) from Percona Toolkit.
+Run the following commands to create these functions:
+mysql -e "CREATE FUNCTION fnv1a_64 RETURNS INTEGER SONAME 'libfnv1a_udf.so'"
+mysql -e "CREATE FUNCTION fnv_64 RETURNS INTEGER SONAME 'libfnv_udf.so'"
+mysql -e "CREATE FUNCTION murmur_hash RETURNS INTEGER SONAME 'libmurmur_udf.so'"
+See http://www.percona.com/doc/percona-server/5.7/management/udf_percona_toolkit.html for more details
+  Erasing    : 1:mariadb-libs-5.5.65-1.el7.x86_64                           7/7
+  Verifying  : Percona-Server-server-57-5.7.31-34.1.el7.x86_64              1/7
+  Verifying  : Percona-Server-shared-57-5.7.31-34.1.el7.x86_64              2/7
+  Verifying  : Percona-Server-shared-compat-57-5.7.31-34.1.el7.x86_64       3/7
+  Verifying  : net-tools-2.0-0.25.20131004git.el7.x86_64                    4/7
+  Verifying  : Percona-Server-client-57-5.7.31-34.1.el7.x86_64              5/7
+  Verifying  : libaio-0.3.109-13.el7.x86_64                                 6/7
+  Verifying  : 1:mariadb-libs-5.5.65-1.el7.x86_64                           7/7
+
+Installed:
+  Percona-Server-server-57.x86_64 0:5.7.31-34.1.el7
+  Percona-Server-shared-compat-57.x86_64 0:5.7.31-34.1.el7
+
+Dependency Installed:
+  Percona-Server-client-57.x86_64 0:5.7.31-34.1.el7
+  Percona-Server-shared-57.x86_64 0:5.7.31-34.1.el7
+  libaio.x86_64 0:0.3.109-13.el7
+  net-tools.x86_64 0:2.0-0.25.20131004git.el7
+
+Replaced:
+  mariadb-libs.x86_64 1:5.5.65-1.el7
+
+Complete!
+[vagrant@localhost ~]$ cat /var/log/mysqld.log | grep password
+cat: /var/log/mysqld.log: Permission denied
+[vagrant@localhost ~]$ cat /var/log/mysqld.log
+cat: /var/log/mysqld.log: Permission denied
+[vagrant@localhost ~]$ sudo cat /var/log/mysqld.log | grep password
+[vagrant@localhost ~]$ sudo cat /var/log/mysqld.log
+[vagrant@localhost ~]$ ls var/log
+ls: cannot access var/log: No such file or directory
+[vagrant@localhost ~]$ ls /var/log/
+anaconda  cron       grubby_prune_debug  messages    rhsm     tallylog
+audit     dmesg      httpd               mysqld.log  samba    tuned
+btmp      dmesg.old  lastlog             nginx       secure   wtmp
+chrony    grubby     maillog             qemu-ga     spooler  yum.log
+[vagrant@localhost ~]$ sudo cat /var/log/mysqld.log
+[vagrant@localhost ~]$ sudo service mysql start
+Redirecting to /bin/systemctl start mysql.service
+[vagrant@localhost ~]$ sudo service mysql status
+Redirecting to /bin/systemctl status mysql.service
+● mysqld.service - MySQL Server
+   Loaded: loaded (/usr/lib/systemd/system/mysqld.service; enabled; vendor preset: disabled)
+   Active: active (running) since Tue 2020-09-01 07:26:04 UTC; 7s ago
+     Docs: man:mysqld(8)
+           http://dev.mysql.com/doc/refman/en/using-systemd.html
+  Process: 1414 ExecStart=/usr/sbin/mysqld --daemonize --pid-file=/var/run/mysqld/mysqld.pid $MYSQLD_OPTS (code=exited, status=0/SUCCESS)
+  Process: 1352 ExecStartPre=/usr/bin/mysqld_pre_systemd (code=exited, status=0/SUCCESS)
+ Main PID: 1417 (mysqld)
+   CGroup: /system.slice/mysqld.service
+           └─1417 /usr/sbin/mysqld --daemonize --pid-file=/var/run/mysqld/mys...
+
+Sep 01 07:25:59 localhost.localdomain systemd[1]: Starting MySQL Server...
+Sep 01 07:26:04 localhost.localdomain systemd[1]: Started MySQL Server.
+[vagrant@localhost ~]$ sudo cat /var/log/mysqld.log
+2020-09-01T07:26:00.431965Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2020-09-01T07:26:00.725480Z 0 [Warning] InnoDB: New log files created, LSN=45790
+2020-09-01T07:26:00.850341Z 0 [Warning] InnoDB: Creating foreign key constraint system tables.
+2020-09-01T07:26:00.944718Z 0 [Warning] No existing UUID has been found, so we assume that this is the first time that this server has been started. Generating a new UUID: 62d6da91-ec24-11ea-8fb7-5254004d77d3.
+2020-09-01T07:26:00.955111Z 0 [Warning] Gtid table is not ready to be used. Table 'mysql.gtid_executed' cannot be opened.
+2020-09-01T07:26:01.318669Z 0 [Warning] CA certificate ca.pem is self signed.
+2020-09-01T07:26:01.533546Z 1 [Note] A temporary password is generated for root@localhost: w:!aN1ryeUbq
+2020-09-01T07:26:04.436976Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2020-09-01T07:26:04.441388Z 0 [Note] /usr/sbin/mysqld (mysqld 5.7.31-34) starting as process 1417 ...
+2020-09-01T07:26:04.449134Z 0 [Note] InnoDB: PUNCH HOLE support available
+2020-09-01T07:26:04.449162Z 0 [Note] InnoDB: Mutexes and rw_locks use GCC atomic builtins
+2020-09-01T07:26:04.449169Z 0 [Note] InnoDB: Uses event mutexes
+2020-09-01T07:26:04.449175Z 0 [Note] InnoDB: GCC builtin __atomic_thread_fence() is used for memory barrier
+2020-09-01T07:26:04.449180Z 0 [Note] InnoDB: Compressed tables use zlib 1.2.7
+2020-09-01T07:26:04.449186Z 0 [Note] InnoDB: Using Linux native AIO
+2020-09-01T07:26:04.449486Z 0 [Note] InnoDB: Number of pools: 1
+2020-09-01T07:26:04.449591Z 0 [Note] InnoDB: Using CPU crc32 instructions
+2020-09-01T07:26:04.451214Z 0 [Note] InnoDB: Initializing buffer pool, total size = 128M, instances = 1, chunk size = 128M
+2020-09-01T07:26:04.459202Z 0 [Note] InnoDB: Completed initialization of buffer pool
+2020-09-01T07:26:04.462583Z 0 [Note] InnoDB: If the mysqld execution user is authorized, page cleaner thread priority can be changed. See the man page of setpriority().
+2020-09-01T07:26:04.471864Z 0 [Note] InnoDB: Crash recovery did not find the parallel doublewrite buffer at /var/lib/mysql/xb_doublewrite
+2020-09-01T07:26:04.472630Z 0 [Note] InnoDB: Highest supported file format is Barracuda.
+2020-09-01T07:26:04.494492Z 0 [Note] InnoDB: Created parallel doublewrite buffer at /var/lib/mysql/xb_doublewrite, size 3932160 bytes
+2020-09-01T07:26:04.500315Z 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+2020-09-01T07:26:04.500405Z 0 [Note] InnoDB: Setting file './ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2020-09-01T07:26:04.525524Z 0 [Note] InnoDB: File './ibtmp1' size is now 12 MB.
+2020-09-01T07:26:04.526425Z 0 [Note] InnoDB: 96 redo rollback segment(s) found. 96 redo rollback segment(s) are active.
+2020-09-01T07:26:04.526435Z 0 [Note] InnoDB: 32 non-redo rollback segment(s) are active.
+2020-09-01T07:26:04.526681Z 0 [Note] InnoDB: Waiting for purge to start
+2020-09-01T07:26:04.577121Z 0 [Note] InnoDB: Percona XtraDB (http://www.percona.com) 5.7.31-34 started; log sequence number 2725297
+2020-09-01T07:26:04.577434Z 0 [Note] Plugin 'FEDERATED' is disabled.
+2020-09-01T07:26:04.583150Z 0 [Note] InnoDB: Loading buffer pool(s) from /var/lib/mysql/ib_buffer_pool
+2020-09-01T07:26:04.584425Z 0 [Note] InnoDB: Buffer pool(s) load completed at 200901  7:26:04
+2020-09-01T07:26:04.587843Z 0 [Note] Found ca.pem, server-cert.pem and server-key.pem in data directory. Trying to enable SSL support using them.
+2020-09-01T07:26:04.587857Z 0 [Note] Skipping generation of SSL certificates as certificate files are present in data directory.
+2020-09-01T07:26:04.588599Z 0 [Warning] CA certificate ca.pem is self signed.
+2020-09-01T07:26:04.588641Z 0 [Note] Skipping generation of RSA key pair as key files are present in data directory.
+2020-09-01T07:26:04.590304Z 0 [Note] Server hostname (bind-address): '*'; port: 3306
+2020-09-01T07:26:04.590342Z 0 [Note] IPv6 is available.
+2020-09-01T07:26:04.590363Z 0 [Note]   - '::' resolves to '::';
+2020-09-01T07:26:04.590503Z 0 [Note] Server socket created on IP: '::'.
+2020-09-01T07:26:04.599317Z 0 [Note] Event Scheduler: Loaded 0 events
+2020-09-01T07:26:04.599433Z 0 [Note] /usr/sbin/mysqld: ready for connections.
+Version: '5.7.31-34'  socket: '/var/lib/mysql/mysql.sock'  port: 3306  Percona Server (GPL), Release 34, Revision 2e68637
+[vagrant@localhost ~]$ sudo cat /var/log/mysqld.log | grep password
+2020-09-01T07:26:01.533546Z 1 [Note] A temporary password is generated for root@localhost: w:!aN1ryeUbq
+[vagrant@localhost ~]$ ^C
+[vagrant@localhost ~]$
+[vagrant@localhost etc]$ mysql -u root --password
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 7
+Server version: 5.7.31-34 Percona Server (GPL), Release 34, Revision 2e68637
+
+Copyright (c) 2009-2020 Percona LLC and/or its affiliates
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> CREATE USER 'root'@'gateway' IDENTIFIED BY 'root';
+ERROR 1819 (HY000): Your password does not satisfy the current policy requirements
+mysql> ^CYour password does not satisfy the current policy requirements^
+^C
+mysql> SET GLOBAL validate_password_policy=LOW;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> ^C
+^C
+mysql>
+mysql> CREATE USER 'root'@'gateway' IDENTIFIED BY 'root';
+ERROR 1819 (HY000): Your password does not satisfy the current policy requirements
+mysql> CREATE USER 'root'@'gateway' IDENTIFIED BY 'root123';
+ERROR 1819 (HY000): Your password does not satisfy the current policy requirements
+mysql> CREATE USER 'root'@'gateway' IDENTIFIED BY 'root123456';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'root'@'geteway' WITH GRANT OPTION;          ERROR 1819 (HY000): Your password does not satisfy the current policy requirements
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'root'@'gateway' WITH GRANT OPTION identified by 'root123456';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'identified by 'root123456'' at line 1
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'root'@'geteway' WITH GRANT OPTION;
+ERROR 1819 (HY000): Your password does not satisfy the current policy requirements
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'root'@'geteway' WITH GRANT OPTION;
+ERROR 1819 (HY000): Your password does not satisfy the current policy requirements
+mysql> ^CSELECT PLUGIN_NAME, PLUGIN_STATUS FROM INFORMATION_SCHEMA.PLUGINS WHERE PLIN_NAME LIKE 'validate%';
+^C
+mysql> SELECT PLUGIN_NAME, PLUGIN_STATUS FROM INFORMATION_SCHEMA.PLUGINS WHERE PLUGIN_NAME LIKE 'validate%';
++-------------------+---------------+
+| PLUGIN_NAME       | PLUGIN_STATUS |
++-------------------+---------------+
+| validate_password | ACTIVE        |
++-------------------+---------------+
+1 row in set (0.00 sec)
+
+mysql> UNINSTALL PLUGIN validate_password;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SELECT PLUGIN_NAME, PLUGIN_STATUS FROM INFORMATION_SCHEMA.PLUGINS WHERE PLUGIN_NAME LIKE 'validate%';
+Empty set (0.00 sec)
+
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'root'@'geteway' WITH GRANT OPTION;          ERROR 1133 (42000): Can't find any matching row in the user table
+mysql> select * from user
+    -> ;
+ERROR 1046 (3D000): No database selected
+mysql> SELECT user FROM mysql.user;
++---------------+
+| user          |
++---------------+
+| root          |
+| mysql.session |
+| mysql.sys     |
+| root          |
++---------------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM mysql.user;
++-----------+---------------+-------------+-------------+-------------+-------------+-------------+-----------+-------------+---------------+--------------+-----------+------------+-----------------+------------+------------+--------------+------------+-----------------------+------------------+--------------+-----------------+------------------+------------------+----------------+---------------------+--------------------+------------------+------------+--------------+------------------------+----------+------------+-------------+--------------+---------------+-------------+-----------------+----------------------+-----------------------+-------------------------------------------+------------------+-----------------------+-------------------+----------------+
+| Host      | User          | Select_priv | Insert_priv | Update_priv | Delete_priv | Create_priv | Drop_priv | Reload_priv | Shutdown_priv | Process_priv | File_priv | Grant_priv | References_priv | Index_priv | Alter_priv | Show_db_priv | Super_priv | Create_tmp_table_priv | Lock_tables_priv | Execute_priv | Repl_slave_priv | Repl_client_priv | Create_view_priv | Show_view_priv | Create_routine_priv | Alter_routine_priv | Create_user_priv | Event_priv | Trigger_priv | Create_tablespace_priv | ssl_type | ssl_cipher | x509_issuer | x509_subject | max_questions | max_updates | max_connections | max_user_connections | plugin                | authentication_string                     | password_expired | password_last_changed | password_lifetime | account_locked |
++-----------+---------------+-------------+-------------+-------------+-------------+-------------+-----------+-------------+---------------+--------------+-----------+------------+-----------------+------------+------------+--------------+------------+-----------------------+------------------+--------------+-----------------+------------------+------------------+----------------+---------------------+--------------------+------------------+------------+--------------+------------------------+----------+------------+-------------+--------------+---------------+-------------+-----------------+----------------------+-----------------------+-------------------------------------------+------------------+-----------------------+-------------------+----------------+
+| localhost | root          | Y           | Y           | Y           | Y           | Y           | Y         | Y           | Y             | Y            | Y         | Y          | Y               | Y          | Y          | Y            | Y          | Y                     | Y                | Y            | Y               | Y                | Y                | Y              | Y                   | Y                  | Y                | Y          | Y            | Y                      |          |            |             |              |             0 |           0 |               0 |                    0 | mysql_native_password | *81F5E21E35407D884A6CD4A731AEBFB6AF209E1B | N                | 2020-09-01 08:06:58   |              NULL | N              |
+| localhost | mysql.session | N           | N           | N           | N           | N           | N         | N           | N             | N            | N         | N          | N               | N          | N          | N            | Y          | N                     | N                | N            | N               | N                | N                | N              | N                   | N                  | N                | N          | N            | N                      |          |            |             |              |             0 |           0 |               0 |                    0 | mysql_native_password | *THISISNOTAVALIDPASSWORDTHATCANBEUSEDHERE | N                | 2020-09-01 07:26:01   |              NULL | Y              |
+| localhost | mysql.sys     | N           | N           | N           | N           | N           | N         | N           | N             | N            | N         | N          | N               | N          | N          | N            | N          | N                     | N                | N            | N               | N                | N                | N              | N                   | N                  | N                | N          | N            | N                      |          |            |             |              |             0 |           0 |               0 |                    0 | mysql_native_password | *THISISNOTAVALIDPASSWORDTHATCANBEUSEDHERE | N                | 2020-09-01 07:26:01   |              NULL | Y              |
+| gateway   | root          | N           | N           | N           | N           | N           | N         | N           | N             | N            | N         | N          | N               | N          | N          | N            | N          | N                     | N                | N            | N               | N                | N                | N              | N                   | N                  | N                | N          | N            | N                      |          |            |             |              |             0 |           0 |               0 |                    0 | mysql_native_password | *BF7B173F1C146F576CC267F0BAEF5589A08404FB | N                | 2020-09-01 08:16:37   |              NULL | N              |
++-----------+---------------+-------------+-------------+-------------+-------------+-------------+-----------+-------------+---------------+--------------+-----------+------------+-----------------+------------+------------+--------------+------------+-----------------------+------------------+--------------+-----------------+------------------+------------------+----------------+---------------------+--------------------+------------------+------------+--------------+------------------------+----------+------------+-------------+--------------+---------------+-------------+-----------------+----------------------+-----------------------+-------------------------------------------+------------------+-----------------------+-------------------+----------------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT host, user FROM mysql.user;
++-----------+---------------+
+| host      | user          |
++-----------+---------------+
+| gateway   | root          |
+| localhost | mysql.session |
+| localhost | mysql.sys     |
+| localhost | root          |
++-----------+---------------+
+4 rows in set (0.00 sec)
+
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'root'@'gateway' WITH GRANT OPTION;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> flush previleges;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'previleges' at line 1
+mysql> FLUSH PRIVILEGES;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> exit
+Bye
+[vagrant@localhost etc]$ sudo service mysql restart
+Redirecting to /bin/systemctl restart mysql.service
+[vagrant@localhost etc]$
