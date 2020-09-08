@@ -1,0 +1,421 @@
+login as: vagrant
+vagrant@127.0.0.1's password:
+Last login: Tue Sep  1 07:52:50 2020 from 10.0.2.2
+[vagrant@localhost ~]$ sudo yum install memcached php72-php-pecl-memcached
+Loaded plugins: fastestmirror
+Determining fastest mirrors
+epel/x86_64/metalink                                     |  13 kB     00:00
+ * base: mirror.axelname.ru
+ * epel: mirrors.dotsrc.org
+ * extras: mirror.axelname.ru
+ * remi-php72: mirror.netsite.dk
+ * remi-safe: mirror.netsite.dk
+ * updates: mirror.axelname.ru
+base                                                     | 3.6 kB     00:00
+epel                                                     | 4.7 kB     00:00
+extras                                                   | 2.9 kB     00:00
+percona-release-noarch                                   | 2.9 kB     00:00
+percona-release-x86_64                                   | 2.9 kB     00:00
+prel-release-x86_64                                      | 2.9 kB     00:00
+remi-php72                                               | 3.0 kB     00:00
+remi-safe                                                | 3.0 kB     00:00
+updates                                                  | 2.9 kB     00:00
+(1/6): prel-release-x86_64/7/primary_db                    | 1.9 kB   00:00
+(2/6): remi-php72/primary_db                               | 240 kB   00:00
+(3/6): percona-release-noarch/7/primary_db                 |  24 kB   00:00
+(4/6): remi-safe/primary_db                                | 1.8 MB   00:00
+(5/6): epel/x86_64/updateinfo                              | 1.0 MB   00:01
+(6/6): epel/x86_64/primary_db                              | 6.9 MB   00:06
+Resolving Dependencies
+--> Running transaction check
+---> Package memcached.x86_64 0:1.4.15-10.el7_3.1 will be installed
+---> Package php72-php-pecl-memcached.x86_64 0:3.1.5-1.el7.remi will be installe                                      d
+--> Processing Dependency: fastlz(x86-64) for package: php72-php-pecl-memcached-                                      3.1.5-1.el7.remi.x86_64
+--> Processing Dependency: libmemcached-opt-libs(x86-64) for package: php72-php-                                      pecl-memcached-3.1.5-1.el7.remi.x86_64
+--> Processing Dependency: php72-php-pecl-igbinary(x86-64) for package: php72-ph                                      p-pecl-memcached-3.1.5-1.el7.remi.x86_64
+--> Processing Dependency: php72-php-pecl-msgpack(x86-64) for package: php72-php                                      -pecl-memcached-3.1.5-1.el7.remi.x86_64
+--> Running transaction check
+---> Package fastlz.x86_64 0:0.1.0-0.1.20070619svnrev12.el7 will be installed
+---> Package libmemcached-opt-libs.x86_64 0:1.0.18-2.el7.remi will be installed
+---> Package php72-php-pecl-igbinary.x86_64 0:3.1.5-1.el7.remi will be installed
+---> Package php72-php-pecl-msgpack.x86_64 0:2.1.1-1.el7.remi will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package                  Arch   Version                        Repository
+                                                                           Size
+================================================================================
+Installing:
+ memcached                x86_64 1.4.15-10.el7_3.1              base       85 k
+ php72-php-pecl-memcached x86_64 3.1.5-1.el7.remi               remi-safe  69 k
+Installing for dependencies:
+ fastlz                   x86_64 0.1.0-0.1.20070619svnrev12.el7 epel      9.8 k
+ libmemcached-opt-libs    x86_64 1.0.18-2.el7.remi              remi-safe 127 k
+ php72-php-pecl-igbinary  x86_64 3.1.5-1.el7.remi               remi-safe  67 k
+ php72-php-pecl-msgpack   x86_64 2.1.1-1.el7.remi               remi-safe  43 k
+
+Transaction Summary
+================================================================================
+Install  2 Packages (+4 Dependent packages)
+
+Total download size: 401 k
+Installed size: 991 k
+Is this ok [y/d/N]: y
+Downloading packages:
+(1/6): memcached-1.4.15-10.el7_3.1.x86_64.rpm              |  85 kB   00:00
+(2/6): libmemcached-opt-libs-1.0.18-2.el7.remi.x86_64.rpm  | 127 kB   00:00
+(3/6): fastlz-0.1.0-0.1.20070619svnrev12.el7.x86_64.rpm    | 9.8 kB   00:00
+(4/6): php72-php-pecl-memcached-3.1.5-1.el7.remi.x86_64.rp |  69 kB   00:00
+(5/6): php72-php-pecl-igbinary-3.1.5-1.el7.remi.x86_64.rpm |  67 kB   00:01
+(6/6): php72-php-pecl-msgpack-2.1.1-1.el7.remi.x86_64.rpm  |  43 kB   00:01
+--------------------------------------------------------------------------------
+Total                                              206 kB/s | 401 kB  00:01
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : fastlz-0.1.0-0.1.20070619svnrev12.el7.x86_64                 1/6
+  Installing : php72-php-pecl-msgpack-2.1.1-1.el7.remi.x86_64               2/6
+  Installing : php72-php-pecl-igbinary-3.1.5-1.el7.remi.x86_64              3/6
+  Installing : libmemcached-opt-libs-1.0.18-2.el7.remi.x86_64               4/6
+  Installing : php72-php-pecl-memcached-3.1.5-1.el7.remi.x86_64             5/6
+  Installing : memcached-1.4.15-10.el7_3.1.x86_64                           6/6
+  Verifying  : libmemcached-opt-libs-1.0.18-2.el7.remi.x86_64               1/6
+  Verifying  : memcached-1.4.15-10.el7_3.1.x86_64                           2/6
+  Verifying  : php72-php-pecl-igbinary-3.1.5-1.el7.remi.x86_64              3/6
+  Verifying  : php72-php-pecl-msgpack-2.1.1-1.el7.remi.x86_64               4/6
+  Verifying  : fastlz-0.1.0-0.1.20070619svnrev12.el7.x86_64                 5/6
+  Verifying  : php72-php-pecl-memcached-3.1.5-1.el7.remi.x86_64             6/6
+
+Installed:
+  memcached.x86_64 0:1.4.15-10.el7_3.1
+  php72-php-pecl-memcached.x86_64 0:3.1.5-1.el7.remi
+
+Dependency Installed:
+  fastlz.x86_64 0:0.1.0-0.1.20070619svnrev12.el7
+  libmemcached-opt-libs.x86_64 0:1.0.18-2.el7.remi
+  php72-php-pecl-igbinary.x86_64 0:3.1.5-1.el7.remi
+  php72-php-pecl-msgpack.x86_64 0:2.1.1-1.el7.remi
+
+Complete!
+[vagrant@localhost ~]$ sudo service php-fpm restart
+Redirecting to /bin/systemctl restart php-fpm.service
+Failed to restart php-fpm.service: Unit not found.
+[vagrant@localhost ~]$ sudo service php7-php-fpm restart
+Redirecting to /bin/systemctl restart php7-php-fpm.service
+Failed to restart php7-php-fpm.service: Unit not found.
+[vagrant@localhost ~]$ apt list --installed | grep fpm
+-bash: apt: command not found
+[vagrant@localhost ~]$ yum list installed | grep fpm
+php72-php-fpm.x86_64                   7.2.33-1.el7.remi        @remi-safe
+[vagrant@localhost ~]$ sudo service php72-php-fpm restart
+Redirecting to /bin/systemctl restart php72-php-fpm.service
+[vagrant@localhost ~]$ netstat -tap | grep memcached
+(No info could be read for "-p": geteuid()=1000 but you should be root.)
+[vagrant@localhost ~]$ sudo netstat -tap | grep memcached
+[vagrant@localhost ~]$ php72-php-fpm —m | grep memcached
+-bash: php72-php-fpm: command not found
+[vagrant@localhost ~]$ sudo php72-php-fpm —m | grep memcached
+sudo: php72-php-fpm: command not found
+[vagrant@localhost ~]$ php-fpm —m | grep memcached
+-bash: php-fpm: command not found
+[vagrant@localhost ~]$ yum list installed | grep memcached
+libmemcached-opt-libs.x86_64           1.0.18-2.el7.remi        @remi-safe
+memcached.x86_64                       1.4.15-10.el7_3.1        @base
+php72-php-pecl-memcached.x86_64        3.1.5-1.el7.remi         @remi-safe
+[vagrant@localhost ~]$ sudo netstat -tulpn | grep memcached
+[vagrant@localhost ~]$ memcached -d
+[vagrant@localhost ~]$ sudo netstat -tulpn | grep memcached
+tcp        0      0 0.0.0.0:11211           0.0.0.0:*               LISTEN                                            1221/memcached
+tcp6       0      0 :::11211                :::*                    LISTEN                                            1221/memcached
+udp        0      0 0.0.0.0:11211           0.0.0.0:*                                                                 1221/memcached
+udp6       0      0 :::11211                :::*                                                                      1221/memcached
+[vagrant@localhost ~]$ cd /var/www/mysite.local/
+[vagrant@localhost mysite.local]$ sudo netstat
+Active Internet connections (w/o servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State
+tcp        0      0 localhost.localdoma:ssh gateway:50607           ESTABLISHED
+tcp        0      0 localhost.localdoma:ssh gateway:49856           ESTABLISHED
+tcp        0      0 localhost.localdoma:ssh gateway:50160           ESTABLISHED
+Active UNIX domain sockets (w/o servers)
+Proto RefCnt Flags       Type       State         I-Node   Path
+unix  2      [ ]         DGRAM                    13096    /var/run/chrony/chronyd.sock
+unix  3      [ ]         DGRAM                    7236     /run/systemd/notify
+unix  2      [ ]         DGRAM                    7238     /run/systemd/cgroups-agent
+unix  5      [ ]         DGRAM                    7253     /run/systemd/journal/socket
+unix  18     [ ]         DGRAM                    7255     /dev/log
+unix  2      [ ]         DGRAM                    10897    /run/systemd/shutdownd
+unix  3      [ ]         STREAM     CONNECTED     18637
+unix  3      [ ]         STREAM     CONNECTED     13359
+unix  2      [ ]         DGRAM                    16624
+unix  3      [ ]         STREAM     CONNECTED     18903
+unix  3      [ ]         STREAM     CONNECTED     16220
+unix  3      [ ]         STREAM     CONNECTED     16174
+unix  3      [ ]         STREAM     CONNECTED     16208
+unix  2      [ ]         DGRAM                    17538
+unix  3      [ ]         STREAM     CONNECTED     13667
+unix  3      [ ]         STREAM     CONNECTED     13186
+unix  3      [ ]         STREAM     CONNECTED     16192
+unix  3      [ ]         STREAM     CONNECTED     17776
+unix  3      [ ]         STREAM     CONNECTED     13273
+unix  3      [ ]         STREAM     CONNECTED     16628
+unix  3      [ ]         STREAM     CONNECTED     16171
+unix  3      [ ]         STREAM     CONNECTED     12176
+unix  3      [ ]         STREAM     CONNECTED     16196
+unix  3      [ ]         STREAM     CONNECTED     13695
+unix  2      [ ]         DGRAM                    13081
+unix  3      [ ]         STREAM     CONNECTED     16228
+unix  2      [ ]         DGRAM                    11712
+unix  3      [ ]         STREAM     CONNECTED     16184
+unix  3      [ ]         STREAM     CONNECTED     16164
+unix  3      [ ]         STREAM     CONNECTED     13404    /run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     16216
+unix  2      [ ]         DGRAM                    15441
+unix  3      [ ]         STREAM     CONNECTED     16232
+unix  3      [ ]         STREAM     CONNECTED     16204
+unix  3      [ ]         STREAM     CONNECTED     16178
+unix  3      [ ]         DGRAM                    11784
+unix  3      [ ]         STREAM     CONNECTED     12177
+unix  3      [ ]         STREAM     CONNECTED     18646
+unix  2      [ ]         DGRAM                    18900
+unix  3      [ ]         STREAM     CONNECTED     18635
+unix  3      [ ]         STREAM     CONNECTED     13360    /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     13231    /run/dbus/system_bus_socket
+unix  3      [ ]         DGRAM                    11783
+unix  3      [ ]         STREAM     CONNECTED     16193
+unix  3      [ ]         STREAM     CONNECTED     16207
+unix  3      [ ]         STREAM     CONNECTED     16627
+unix  3      [ ]         STREAM     CONNECTED     16225
+unix  2      [ ]         DGRAM                    19011
+unix  3      [ ]         STREAM     CONNECTED     18638
+unix  3      [ ]         STREAM     CONNECTED     13274    /run/systemd/journal/stdout
+unix  2      [ ]         DGRAM                    12167
+unix  3      [ ]         STREAM     CONNECTED     13228    /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     13133    /run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     16211
+unix  3      [ ]         STREAM     CONNECTED     16170
+unix  3      [ ]         STREAM     CONNECTED     16213
+unix  3      [ ]         STREAM     CONNECTED     13696    /run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     16167
+unix  3      [ ]         STREAM     CONNECTED     11648    /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     12937
+unix  3      [ ]         STREAM     CONNECTED     16181
+unix  3      [ ]         STREAM     CONNECTED     16199
+unix  3      [ ]         STREAM     CONNECTED     16217
+unix  2      [ ]         DGRAM                    16135
+unix  3      [ ]         STREAM     CONNECTED     16231
+unix  3      [ ]         STREAM     CONNECTED     18640
+unix  3      [ ]         STREAM     CONNECTED     16189
+unix  3      [ ]         STREAM     CONNECTED     13668    /run/systemd/journal/stdout
+unix  2      [ ]         DGRAM                    17274
+unix  3      [ ]         STREAM     CONNECTED     16177
+unix  3      [ ]         STREAM     CONNECTED     18904
+unix  3      [ ]         STREAM     CONNECTED     16163
+unix  3      [ ]         STREAM     CONNECTED     13227
+unix  3      [ ]         STREAM     CONNECTED     13021    /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     16190
+unix  3      [ ]         STREAM     CONNECTED     18634
+unix  2      [ ]         DGRAM                    13375
+unix  3      [ ]         STREAM     CONNECTED     16070    /run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     16222
+unix  3      [ ]         STREAM     CONNECTED     16210
+unix  2      [ ]         DGRAM                    11302
+unix  2      [ ]         DGRAM                    13672
+unix  3      [ ]         STREAM     CONNECTED     13131
+unix  3      [ ]         STREAM     CONNECTED     13515
+unix  3      [ ]         STREAM     CONNECTED     16226
+unix  3      [ ]         STREAM     CONNECTED     15190    /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     16180
+unix  3      [ ]         STREAM     CONNECTED     16198
+unix  3      [ ]         STREAM     CONNECTED     11647
+unix  2      [ ]         DGRAM                    13589
+unix  3      [ ]         STREAM     CONNECTED     16160
+unix  3      [ ]         STREAM     CONNECTED     16214
+unix  3      [ ]         STREAM     CONNECTED     16202
+unix  3      [ ]         STREAM     CONNECTED     16186
+unix  2      [ ]         DGRAM                    13778
+unix  3      [ ]         STREAM     CONNECTED     14307    /run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     15393
+unix  2      [ ]         DGRAM                    16271
+unix  3      [ ]         STREAM     CONNECTED     17541
+unix  3      [ ]         STREAM     CONNECTED     13020
+unix  3      [ ]         STREAM     CONNECTED     16205
+unix  3      [ ]         STREAM     CONNECTED     18644
+unix  3      [ ]         STREAM     CONNECTED     16069
+unix  3      [ ]         STREAM     CONNECTED     16223
+unix  3      [ ]         STREAM     CONNECTED     17775
+unix  3      [ ]         STREAM     CONNECTED     13403
+unix  3      [ ]         STREAM     CONNECTED     17542
+unix  3      [ ]         STREAM     CONNECTED     16195
+unix  3      [ ]         STREAM     CONNECTED     13132
+unix  3      [ ]         STREAM     CONNECTED     16168
+unix  3      [ ]         STREAM     CONNECTED     18643
+unix  3      [ ]         STREAM     CONNECTED     15134
+unix  3      [ ]         STREAM     CONNECTED     18641
+unix  3      [ ]         STREAM     CONNECTED     13514
+unix  3      [ ]         STREAM     CONNECTED     16183
+unix  3      [ ]         STREAM     CONNECTED     16161
+unix  3      [ ]         STREAM     CONNECTED     16229
+unix  2      [ ]         DGRAM                    14505
+unix  3      [ ]         STREAM     CONNECTED     16187
+unix  2      [ ]         DGRAM                    13755
+unix  3      [ ]         STREAM     CONNECTED     18647
+unix  3      [ ]         STREAM     CONNECTED     16201
+unix  3      [ ]         STREAM     CONNECTED     16175
+unix  3      [ ]         STREAM     CONNECTED     16219
+unix  3      [ ]         STREAM     CONNECTED     15394    /run/systemd/journal/stdout
+unix  2      [ ]         DGRAM                    16253
+unix  2      [ ]         DGRAM                    13510
+unix  3      [ ]         STREAM     CONNECTED     14306
+[vagrant@localhost mysite.local]$ sudo netstat -tulpn | grep php
+[vagrant@localhost mysite.local]$ sudo systemctl restart php72-php-fpm
+[vagrant@localhost mysite.local]$ sudo systemctl status php72-php-fpm
+● php72-php-fpm.service - The PHP FastCGI Process Manager
+   Loaded: loaded (/usr/lib/systemd/system/php72-php-fpm.service; disabled; vendor preset: disabled)
+   Active: active (running) since Tue 2020-09-08 10:34:19 UTC; 1min 12s ago
+ Main PID: 1270 (php-fpm)
+   Status: "Processes active: 0, idle: 5, Requests: 0, slow: 0, Traffic: 0req/sec"
+   CGroup: /system.slice/php72-php-fpm.service
+           ├─1270 php-fpm: master process (/etc/opt/remi/php72/php-fpm.conf)
+           ├─1271 php-fpm: pool www
+           ├─1272 php-fpm: pool www
+           ├─1273 php-fpm: pool www
+           ├─1274 php-fpm: pool www
+           └─1275 php-fpm: pool www
+
+Sep 08 10:34:19 localhost.localdomain systemd[1]: Starting The PHP FastCGI Process Manager...
+Sep 08 10:34:19 localhost.localdomain systemd[1]: Started The PHP FastCGI Process Manager.
+[vagrant@localhost mysite.local]$ sudo systemctl restart nginx
+[vagrant@localhost mysite.local]$ sudo systemctl status nginx
+● nginx.service - The nginx HTTP and reverse proxy server
+   Loaded: loaded (/usr/lib/systemd/system/nginx.service; disabled; vendor preset: disabled)
+   Active: active (running) since Tue 2020-09-08 10:35:44 UTC; 6s ago
+  Process: 1288 ExecStart=/usr/sbin/nginx (code=exited, status=0/SUCCESS)
+  Process: 1286 ExecStartPre=/usr/sbin/nginx -t (code=exited, status=0/SUCCESS)
+  Process: 1285 ExecStartPre=/usr/bin/rm -f /run/nginx.pid (code=exited, status=0/SUCCESS)
+ Main PID: 1290 (nginx)
+   CGroup: /system.slice/nginx.service
+           ├─1290 nginx: master process /usr/sbin/nginx
+           └─1291 nginx: worker process
+
+Sep 08 10:35:44 localhost.localdomain systemd[1]: Starting The nginx HTTP and reverse proxy server...
+Sep 08 10:35:44 localhost.localdomain nginx[1286]: nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+Sep 08 10:35:44 localhost.localdomain nginx[1286]: nginx: configuration file /etc/nginx/nginx.conf test is successful
+Sep 08 10:35:44 localhost.localdomain systemd[1]: Failed to parse PID from file /run/nginx.pid: Invalid argument
+Sep 08 10:35:44 localhost.localdomain systemd[1]: Started The nginx HTTP and reverse proxy server.
+Hint: Some lines were ellipsized, use -l to show in full.
+[vagrant@localhost mysite.local]$ sudo yum install redis-server php72-php-pecl-redis
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirror.axelname.ru
+ * epel: mirrors.dotsrc.org
+ * extras: mirror.axelname.ru
+ * remi-php72: mirror.netsite.dk
+ * remi-safe: mirror.netsite.dk
+ * updates: mirror.axelname.ru
+No package redis-server available.
+Resolving Dependencies
+--> Running transaction check
+---> Package php72-php-pecl-redis.x86_64 0:3.1.6-1.el7.remi will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+======================================================================================================================
+ Package                            Arch                 Version                        Repository               Size
+======================================================================================================================
+Installing:
+ php72-php-pecl-redis               x86_64               3.1.6-1.el7.remi               remi-safe               156 k
+
+Transaction Summary
+======================================================================================================================
+Install  1 Package
+
+Total download size: 156 k
+Installed size: 555 k
+Is this ok [y/d/N]: y
+Downloading packages:
+php72-php-pecl-redis-3.1.6-1.el7.remi.x86_64.rpm                                               | 156 kB  00:00:00
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : php72-php-pecl-redis-3.1.6-1.el7.remi.x86_64                                                       1/1
+  Verifying  : php72-php-pecl-redis-3.1.6-1.el7.remi.x86_64                                                       1/1
+
+Installed:
+  php72-php-pecl-redis.x86_64 0:3.1.6-1.el7.remi
+
+Complete!
+[vagrant@localhost mysite.local]$ sudo service redis-server start
+Redirecting to /bin/systemctl start redis-server.service
+Failed to start redis-server.service: Unit not found.
+[vagrant@localhost mysite.local]$ sudo service redis-server start
+Redirecting to /bin/systemctl start redis-server.service
+Failed to start redis-server.service: Unit not found.
+[vagrant@localhost mysite.local]$ redis-server -d
+-bash: redis-server: command not found
+[vagrant@localhost mysite.local]$ yum list installed | grep redis
+php72-php-pecl-redis.x86_64            3.1.6-1.el7.remi         @remi-safe
+[vagrant@localhost mysite.local]$ sudo yum install redis-server php72-php-pecl-redis^C
+[vagrant@localhost mysite.local]$ sudo yum install redis
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirror.axelname.ru
+ * epel: mirrors.dotsrc.org
+ * extras: mirror.axelname.ru
+ * remi-php72: mirror.netsite.dk
+ * remi-safe: mirror.netsite.dk
+ * updates: mirror.axelname.ru
+Resolving Dependencies
+--> Running transaction check
+---> Package redis.x86_64 0:3.2.12-2.el7 will be installed
+--> Processing Dependency: libjemalloc.so.1()(64bit) for package: redis-3.2.12-2.el7.x86_64
+--> Running transaction check
+---> Package jemalloc.x86_64 0:3.6.0-1.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+======================================================================================================================
+ Package                     Arch                      Version                          Repository               Size
+======================================================================================================================
+Installing:
+ redis                       x86_64                    3.2.12-2.el7                     epel                    544 k
+Installing for dependencies:
+ jemalloc                    x86_64                    3.6.0-1.el7                      epel                    105 k
+
+Transaction Summary
+======================================================================================================================
+Install  1 Package (+1 Dependent package)
+
+Total download size: 648 k
+Installed size: 1.7 M
+Is this ok [y/d/N]: y
+Downloading packages:
+(1/2): jemalloc-3.6.0-1.el7.x86_64.rpm                                                         | 105 kB  00:00:00
+(2/2): redis-3.2.12-2.el7.x86_64.rpm                                                           | 544 kB  00:00:01
+----------------------------------------------------------------------------------------------------------------------
+Total                                                                                 494 kB/s | 648 kB  00:00:01
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : jemalloc-3.6.0-1.el7.x86_64                                                                        1/2
+  Installing : redis-3.2.12-2.el7.x86_64                                                                          2/2
+  Verifying  : redis-3.2.12-2.el7.x86_64                                                                          1/2
+  Verifying  : jemalloc-3.6.0-1.el7.x86_64                                                                        2/2
+
+Installed:
+  redis.x86_64 0:3.2.12-2.el7
+
+Dependency Installed:
+  jemalloc.x86_64 0:3.6.0-1.el7
+
+Complete!
+[vagrant@localhost mysite.local]$ sudo systemctl restart redis
+[vagrant@localhost mysite.local]$ sudo systemctl restart php72-php-fpm
+[vagrant@localhost mysite.local]$ sudo systemctl restart nginx
+[vagrant@localhost mysite.local]$
