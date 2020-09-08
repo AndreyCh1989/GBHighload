@@ -1,0 +1,28 @@
+<?php
+
+const REDIS_SERVER = "127.0.0.1";
+const REDIS_PORT = 6379;
+
+include "redis.php";
+$redis = RedisCacheProvider::getInstance();
+
+function num($itr) {
+	$result = 1;
+	for ($x=$itr; $x>=1; $x--)   
+	{  
+  		$result = $result * $x;  
+	}
+	return $result;
+}
+
+$time_start = time();
+$result = $redis->get('result');
+if (!$result) {
+	print_r('qqweqe</br>');
+	$redis->set('result',  num(10000));
+	$result = $redis->get('result');
+}
+
+print_r('time: ' . strval(time() - $time_start) . '</br>');
+$redis->del('result');
+print_r($result);
